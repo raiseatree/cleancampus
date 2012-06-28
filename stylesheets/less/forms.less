@@ -1,0 +1,80 @@
+@import 'boilerplate.less';
+@import 'colours.less';
+@import 'functions.less';
+@import 'buttons.less';
+
+.errorMessages {
+	color: #900;
+	border: solid 2px #900;
+	background: #F0D9D9;
+	-moz-box-shadow: 0px 0px 5px #900;
+	-webkit-box-shadow: 0px 0px 5px #900;
+	box-shadow: 0px 0px 5px #900;
+	padding: 10px;
+	padding-bottom: 15px;
+	margin-right: 20px;
+	display: block;
+	border-radius: 10px;
+	
+	li {
+		font-weight: bold;
+		margin-left: 20px;
+		margin-top: 10px;
+	} 
+}
+
+fieldset {
+	background: @white;
+	margin-bottom: 20px;
+	
+	legend {
+		padding: 10px;
+		color: @midGreen;
+		font-weight: bold;
+	}
+}
+
+label {
+	span {
+		.fl;
+		margin-left: 30px;
+		margin-right: 10px;
+		display: block;
+		width: 100px;
+	}
+}
+
+
+input.textfield {
+	border: solid 2px @green;
+	.border-radius(4px);
+	padding: 10px;
+	width: 235px;
+	.fl;
+	margin-bottom: 20px;
+	
+	transition: all 0.30s ease-in-out;
+	-webkit-transition: all 0.30s ease-in-out;
+ 	-moz-transition: all 0.30s ease-in-out;
+ 	
+ 	&:focus {
+ 		box-shadow: 0 0 5px @grey;
+		-webkit-box-shadow: 0 0 5px @grey;
+		-moz-box-shadow: 0 0 5px @grey;
+ 	}
+}
+
+input.checkbox {
+	margin-right: 15px;
+}
+
+.checkboxList {
+	width: 150px;
+	margin: 10px;
+	.fl;
+}
+
+input.loginButton {
+	width: 235px;
+	margin-top: 10px;
+}

@@ -1,0 +1,26 @@
+/* Simple Gradient overlays a transparent to black gradient controlled by alpha value */
+.simple-gradient(@origin: left, @alpha: 0.2){
+	background-image: -webkit-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -moz-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -o-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: -ms-linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+	background-image: linear-gradient(@origin, rgba(0,0,0,0.0), rgba(0,0,0,@alpha));
+}
+/* Simple 2 Colour Linear Gradient */
+.linear-gradient(@origin, @start: #000000, @stop: #FFFFFF){
+	background-color:@start;
+	background-image: -webkit-linear-gradient(@origin, @start, @stop);
+	background-image: -moz-linear-gradient(@origin, @start, @stop);
+	background-image: -o-linear-gradient(@origin, @start, @stop);
+	background-image: -ms-linear-gradient(@origin, @start, @stop);
+	background-image: linear-gradient(@origin, @start, @stop);
+}
+/* 2 Colour Radial Gradient */
+.radial-gradient(@start, @stop, @stopPos: 100%, @hPos: center, @vPos: center, @shape: circle, @size: contain){
+	background-color:@start;
+	background-image: -moz-radial-gradient(@hPos @vPos, @shape @size, @start, @stop @stopPos);
+	background-image: -webkit-radial-gradient(@hPos @vPos, @shape @size, @start, @stop @stopPos);
+	background-image: -o-radial-gradient(@hPos @vPos, @shape @size, @start, @stop @stopPos);
+	background-image: -ms-radial-gradient(@hPos @vPos, @shape @size, @start, @stop @stopPos);
+	background-image: radial-gradient(@hPos @vPos, @shape @size, @start, @stop @stopPos);
+}

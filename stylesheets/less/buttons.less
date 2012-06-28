@@ -1,0 +1,45 @@
+@import 'boilerplate.less';
+@import 'colours.less';
+@import 'functions.less';
+
+.inactiveButton,
+.activeButton {
+	.fl;
+	border: solid 1px @green;
+	.border-radius(4px);
+	.linear-gradient(top, @white, @beige);
+	padding: 10px;
+	margin-top: 10px;
+	min-width: 80px;
+	.textCentre;
+	color: @green;
+
+	&:after {
+		content: ' >';
+	}
+	
+	&:hover {
+		color: @green;
+	}
+	
+	&:active {
+		.linear-gradient(top, @beige, @white);
+	}
+}
+
+.activeButton {
+	.linear-gradient(top, @midGreen, @darkGreen);
+	color: @white;
+	
+	&:hover {
+		color: @white;
+	}
+	
+	&:active {
+		.linear-gradient(top, @darkGreen, @midGreen);
+		color: @white;	
+	}
+}
+#register {
+	margin-left: 20px;
+}

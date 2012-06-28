@@ -1,0 +1,3105 @@
+/* Simple Gradient overlays a transparent to black gradient controlled by alpha value */
+/* Simple 2 Colour Linear Gradient */
+/* 2 Colour Radial Gradient */
+/*! normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) {
+  display: none;
+}
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+[hidden] {
+  display: none;
+}
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Keeps page centred in all browsers regardless of content height
+ * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+html {
+  font-size: 100%;
+  /* 1 */
+
+  overflow-y: scroll;
+  /* 2 */
+
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+
+}
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
+body {
+  margin: 0;
+}
+/* 
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+/* =============================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+a:focus {
+  outline: thin dotted;
+}
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+a:hover,
+a:active {
+  outline: 0;
+}
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
+ */
+h1 {
+  font-size: 2em;
+}
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/*
+ * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+*/
+b,
+strong {
+  font-weight: bold;
+}
+blockquote {
+  margin: 1em 40px;
+}
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+dfn {
+  font-style: italic;
+}
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+/* 1 */
+q {
+  quotes: none;
+}
+/* 2 */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+small {
+  font-size: 75%;
+}
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* =============================================================================
+   Lists
+   ========================================================================== */
+ul,
+ol {
+  margin-left: 0;
+  padding: 0 0 0 40px;
+}
+dd {
+  margin: 0 0 0 40px;
+}
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+img {
+  border: 0;
+  /* 1 */
+
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+
+}
+/*
+ * Corrects overflow displayed oddly in IE9 
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* =============================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+figure {
+  margin: 0;
+}
+/* =============================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+form {
+  margin: 0;
+}
+/*
+ * Define consistent border, margin, and padding
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects alignment displayed oddly in IE6/7
+ */
+legend {
+  border: 0;
+  /* 1 */
+
+  *margin-left: -7px;
+  /* 2 */
+
+}
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+
+  margin: 0;
+  /* 2 */
+
+  vertical-align: baseline;
+  /* 3 */
+
+  *vertical-align: middle;
+  /* 3 */
+
+}
+/*
+ * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+ */
+button,
+input {
+  line-height: normal;
+  /* 1 */
+
+}
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ * 3. Removes inner spacing in IE7 without affecting normal text inputs
+ *    Known issue: inner spacing remains in IE6
+ */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  /* 1 */
+
+  -webkit-appearance: button;
+  /* 2 */
+
+  *overflow: visible;
+  /* 3 */
+
+}
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9
+ * 2. Removes excess padding in IE8/9
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+
+  padding: 0;
+  /* 2 */
+
+}
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+
+  box-sizing: content-box;
+}
+/*
+ * Removes inner padding that is displayed in S5, Chrome on OS X
+ */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/*
+ * Removes inner padding and border in FF3+
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+
+  vertical-align: top;
+  /* 2 */
+
+}
+/* =============================================================================
+   Tables
+   ========================================================================== */
+/* 
+ * Remove most spacing between table cells
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  width: 100%;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/* Generated by Font Squirrel (http://www.fontsquirrel.com) on March 10, 2012 */
+@font-face {
+  font-family: 'SansationRegular';
+  src: url('sansation_regular-webfont.eot');
+  src: url('sansation_regular-webfont.eot?#iefix') format('embedded-opentype'), url('sansation_regular-webfont.woff') format('woff'), url('sansation_regular-webfont.ttf') format('truetype'), url('sansation_regular-webfont.svg#SansationRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Simple Gradient overlays a transparent to black gradient controlled by alpha value */
+/* Simple 2 Colour Linear Gradient */
+/* 2 Colour Radial Gradient */
+/*! normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) {
+  display: none;
+}
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+[hidden] {
+  display: none;
+}
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Keeps page centred in all browsers regardless of content height
+ * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+html {
+  font-size: 100%;
+  /* 1 */
+
+  overflow-y: scroll;
+  /* 2 */
+
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+
+}
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
+body {
+  margin: 0;
+}
+/* 
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+/* =============================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+a:focus {
+  outline: thin dotted;
+}
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+a:hover,
+a:active {
+  outline: 0;
+}
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
+ */
+h1 {
+  font-size: 2em;
+}
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/*
+ * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+*/
+b,
+strong {
+  font-weight: bold;
+}
+blockquote {
+  margin: 1em 40px;
+}
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+dfn {
+  font-style: italic;
+}
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+/* 1 */
+q {
+  quotes: none;
+}
+/* 2 */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+small {
+  font-size: 75%;
+}
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* =============================================================================
+   Lists
+   ========================================================================== */
+ul,
+ol {
+  margin-left: 0;
+  padding: 0 0 0 40px;
+}
+dd {
+  margin: 0 0 0 40px;
+}
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+img {
+  border: 0;
+  /* 1 */
+
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+
+}
+/*
+ * Corrects overflow displayed oddly in IE9 
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* =============================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+figure {
+  margin: 0;
+}
+/* =============================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+form {
+  margin: 0;
+}
+/*
+ * Define consistent border, margin, and padding
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects alignment displayed oddly in IE6/7
+ */
+legend {
+  border: 0;
+  /* 1 */
+
+  *margin-left: -7px;
+  /* 2 */
+
+}
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+
+  margin: 0;
+  /* 2 */
+
+  vertical-align: baseline;
+  /* 3 */
+
+  *vertical-align: middle;
+  /* 3 */
+
+}
+/*
+ * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+ */
+button,
+input {
+  line-height: normal;
+  /* 1 */
+
+}
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ * 3. Removes inner spacing in IE7 without affecting normal text inputs
+ *    Known issue: inner spacing remains in IE6
+ */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  /* 1 */
+
+  -webkit-appearance: button;
+  /* 2 */
+
+  *overflow: visible;
+  /* 3 */
+
+}
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9
+ * 2. Removes excess padding in IE8/9
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+
+  padding: 0;
+  /* 2 */
+
+}
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+
+  box-sizing: content-box;
+}
+/*
+ * Removes inner padding that is displayed in S5, Chrome on OS X
+ */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/*
+ * Removes inner padding and border in FF3+
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+
+  vertical-align: top;
+  /* 2 */
+
+}
+/* =============================================================================
+   Tables
+   ========================================================================== */
+/* 
+ * Remove most spacing between table cells
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  width: 100%;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/* 
+ * Set up colour variables
+ */
+.beige {
+  color: #edf6d9;
+}
+.green {
+  color: #83c500;
+}
+.midGreen {
+  color: #70ae00;
+}
+.darkGreen {
+  color: #336600;
+}
+.black {
+  color: #000000;
+}
+.white {
+  color: #ffffff;
+}
+.grey {
+  color: #bfbfbf;
+}
+.lightGrey {
+  color: #ebebeb;
+}
+.red {
+  color: #e31b23;
+}
+.paleRed {
+  color: #f18d9a;
+}
+.amber {
+  color: #ff9900;
+}
+/*
+ * Other generic functions
+ */
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.textCentre {
+  text-align: center;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.cl {
+  clear: left;
+}
+.cr {
+  clear: right;
+}
+.cb {
+  clear: both;
+}
+.overflow {
+  overflow: auto;
+}
+.menuList {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.hidden {
+  display: none;
+}
+.inactiveButton,
+.activeButton {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  border: solid 1px #83c500;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  padding: 10px;
+  margin-top: 10px;
+  min-width: 80px;
+  text-align: center;
+  text-align: center;
+  text-align: center;
+  text-align: center;
+  color: #83c500;
+}
+.inactiveButton:after,
+.activeButton:after {
+  content: ' >';
+}
+.inactiveButton:hover,
+.activeButton:hover {
+  color: #83c500;
+}
+.inactiveButton:active,
+.activeButton:active {
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+}
+.activeButton {
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  color: #ffffff;
+}
+.activeButton:hover {
+  color: #ffffff;
+}
+.activeButton:active {
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  color: #ffffff;
+}
+#register {
+  margin-left: 20px;
+}
+/* 
+ * Set up colour variables
+ */
+.beige {
+  color: #edf6d9;
+}
+.green {
+  color: #83c500;
+}
+.midGreen {
+  color: #70ae00;
+}
+.darkGreen {
+  color: #336600;
+}
+.black {
+  color: #000000;
+}
+.white {
+  color: #ffffff;
+}
+.grey {
+  color: #bfbfbf;
+}
+.lightGrey {
+  color: #ebebeb;
+}
+.red {
+  color: #e31b23;
+}
+.paleRed {
+  color: #f18d9a;
+}
+.amber {
+  color: #ff9900;
+}
+/*
+ * Other generic functions
+ */
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.textCentre {
+  text-align: center;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.cl {
+  clear: left;
+}
+.cr {
+  clear: right;
+}
+.cb {
+  clear: both;
+}
+.overflow {
+  overflow: auto;
+}
+.menuList {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.hidden {
+  display: none;
+}
+/* Simple Gradient overlays a transparent to black gradient controlled by alpha value */
+/* Simple 2 Colour Linear Gradient */
+/* 2 Colour Radial Gradient */
+/*! normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) {
+  display: none;
+}
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+[hidden] {
+  display: none;
+}
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Keeps page centred in all browsers regardless of content height
+ * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+html {
+  font-size: 100%;
+  /* 1 */
+
+  overflow-y: scroll;
+  /* 2 */
+
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+
+}
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
+body {
+  margin: 0;
+}
+/* 
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+/* =============================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+a:focus {
+  outline: thin dotted;
+}
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+a:hover,
+a:active {
+  outline: 0;
+}
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
+ */
+h1 {
+  font-size: 2em;
+}
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/*
+ * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+*/
+b,
+strong {
+  font-weight: bold;
+}
+blockquote {
+  margin: 1em 40px;
+}
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+dfn {
+  font-style: italic;
+}
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+/* 1 */
+q {
+  quotes: none;
+}
+/* 2 */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+small {
+  font-size: 75%;
+}
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* =============================================================================
+   Lists
+   ========================================================================== */
+ul,
+ol {
+  margin-left: 0;
+  padding: 0 0 0 40px;
+}
+dd {
+  margin: 0 0 0 40px;
+}
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+img {
+  border: 0;
+  /* 1 */
+
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+
+}
+/*
+ * Corrects overflow displayed oddly in IE9 
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* =============================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+figure {
+  margin: 0;
+}
+/* =============================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+form {
+  margin: 0;
+}
+/*
+ * Define consistent border, margin, and padding
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects alignment displayed oddly in IE6/7
+ */
+legend {
+  border: 0;
+  /* 1 */
+
+  *margin-left: -7px;
+  /* 2 */
+
+}
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+
+  margin: 0;
+  /* 2 */
+
+  vertical-align: baseline;
+  /* 3 */
+
+  *vertical-align: middle;
+  /* 3 */
+
+}
+/*
+ * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+ */
+button,
+input {
+  line-height: normal;
+  /* 1 */
+
+}
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ * 3. Removes inner spacing in IE7 without affecting normal text inputs
+ *    Known issue: inner spacing remains in IE6
+ */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  /* 1 */
+
+  -webkit-appearance: button;
+  /* 2 */
+
+  *overflow: visible;
+  /* 3 */
+
+}
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9
+ * 2. Removes excess padding in IE8/9
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+
+  padding: 0;
+  /* 2 */
+
+}
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+
+  box-sizing: content-box;
+}
+/*
+ * Removes inner padding that is displayed in S5, Chrome on OS X
+ */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/*
+ * Removes inner padding and border in FF3+
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+
+  vertical-align: top;
+  /* 2 */
+
+}
+/* =============================================================================
+   Tables
+   ========================================================================== */
+/* 
+ * Remove most spacing between table cells
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  width: 100%;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/* 
+ * Set up colour variables
+ */
+.beige {
+  color: #edf6d9;
+}
+.green {
+  color: #83c500;
+}
+.midGreen {
+  color: #70ae00;
+}
+.darkGreen {
+  color: #336600;
+}
+.black {
+  color: #000000;
+}
+.white {
+  color: #ffffff;
+}
+.grey {
+  color: #bfbfbf;
+}
+.lightGrey {
+  color: #ebebeb;
+}
+.red {
+  color: #e31b23;
+}
+.paleRed {
+  color: #f18d9a;
+}
+.amber {
+  color: #ff9900;
+}
+/*
+ * Other generic functions
+ */
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.textCentre {
+  text-align: center;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.cl {
+  clear: left;
+}
+.cr {
+  clear: right;
+}
+.cb {
+  clear: both;
+}
+.overflow {
+  overflow: auto;
+}
+.menuList {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.hidden {
+  display: none;
+}
+/* Simple Gradient overlays a transparent to black gradient controlled by alpha value */
+/* Simple 2 Colour Linear Gradient */
+/* 2 Colour Radial Gradient */
+/*! normalize.css 2011-11-04T15:38 UTC - http://github.com/necolas/normalize.css */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) {
+  display: none;
+}
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+[hidden] {
+  display: none;
+}
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+ *    http://clagnut.com/blog/348/#c790
+ * 2. Keeps page centred in all browsers regardless of content height
+ * 3. Prevents iOS text size adjust after orientation change, without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+html {
+  font-size: 100%;
+  /* 1 */
+
+  overflow-y: scroll;
+  /* 2 */
+
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+
+}
+/*
+ * Addresses margins handled incorrectly in IE6/7
+ */
+body {
+  margin: 0;
+}
+/* 
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+/* =============================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+a:focus {
+  outline: thin dotted;
+}
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+a:hover,
+a:active {
+  outline: 0;
+}
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Neutralise smaller font-size in 'section' and 'article' in FF4+, Chrome, S5
+ */
+h1 {
+  font-size: 2em;
+}
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/*
+ * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+*/
+b,
+strong {
+  font-weight: bold;
+}
+blockquote {
+  margin: 1em 40px;
+}
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+dfn {
+  font-style: italic;
+}
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+/*
+ * Improves readability of pre-formatted text in all browsers
+ */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+/* 1 */
+q {
+  quotes: none;
+}
+/* 2 */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+small {
+  font-size: 75%;
+}
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* =============================================================================
+   Lists
+   ========================================================================== */
+ul,
+ol {
+  margin-left: 0;
+  padding: 0 0 0 40px;
+}
+dd {
+  margin: 0 0 0 40px;
+}
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Removes border when inside 'a' element in IE6/7/8/9, FF3
+ * 2. Improves image quality when scaled in IE7
+ *    code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+img {
+  border: 0;
+  /* 1 */
+
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+
+}
+/*
+ * Corrects overflow displayed oddly in IE9 
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* =============================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+figure {
+  margin: 0;
+}
+/* =============================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Corrects margin displayed oddly in IE6/7
+ */
+form {
+  margin: 0;
+}
+/*
+ * Define consistent border, margin, and padding
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/*
+ * 1. Corrects color not being inherited in IE6/7/8/9
+ * 2. Corrects alignment displayed oddly in IE6/7
+ */
+legend {
+  border: 0;
+  /* 1 */
+
+  *margin-left: -7px;
+  /* 2 */
+
+}
+/*
+ * 1. Corrects font size not being inherited in all browsers
+ * 2. Addresses margins set differently in IE6/7, FF3+, S5, Chrome
+ * 3. Improves appearance and consistency in all browsers
+ */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+
+  margin: 0;
+  /* 2 */
+
+  vertical-align: baseline;
+  /* 3 */
+
+  *vertical-align: middle;
+  /* 3 */
+
+}
+/*
+ * Addresses FF3/4 setting line-height on 'input' using !important in the UA stylesheet
+ */
+button,
+input {
+  line-height: normal;
+  /* 1 */
+
+}
+/*
+ * 1. Improves usability and consistency of cursor style between image-type 'input' and others
+ * 2. Corrects inability to style clickable 'input' types in iOS
+ * 3. Removes inner spacing in IE7 without affecting normal text inputs
+ *    Known issue: inner spacing remains in IE6
+ */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  /* 1 */
+
+  -webkit-appearance: button;
+  /* 2 */
+
+  *overflow: visible;
+  /* 3 */
+
+}
+/*
+ * 1. Addresses box sizing set to content-box in IE8/9
+ * 2. Removes excess padding in IE8/9
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+
+  padding: 0;
+  /* 2 */
+
+}
+/*
+ * 1. Addresses appearance set to searchfield in S5, Chrome
+ * 2. Addresses box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+
+  box-sizing: content-box;
+}
+/*
+ * Removes inner padding that is displayed in S5, Chrome on OS X
+ */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/*
+ * Removes inner padding and border in FF3+
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/*
+ * 1. Removes default vertical scrollbar in IE6/7/8/9
+ * 2. Improves readability and alignment in all browsers
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+
+  vertical-align: top;
+  /* 2 */
+
+}
+/* =============================================================================
+   Tables
+   ========================================================================== */
+/* 
+ * Remove most spacing between table cells
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  width: 100%;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+/* 
+ * Set up colour variables
+ */
+.beige {
+  color: #edf6d9;
+}
+.green {
+  color: #83c500;
+}
+.midGreen {
+  color: #70ae00;
+}
+.darkGreen {
+  color: #336600;
+}
+.black {
+  color: #000000;
+}
+.white {
+  color: #ffffff;
+}
+.grey {
+  color: #bfbfbf;
+}
+.lightGrey {
+  color: #ebebeb;
+}
+.red {
+  color: #e31b23;
+}
+.paleRed {
+  color: #f18d9a;
+}
+.amber {
+  color: #ff9900;
+}
+/*
+ * Other generic functions
+ */
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.textCentre {
+  text-align: center;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.cl {
+  clear: left;
+}
+.cr {
+  clear: right;
+}
+.cb {
+  clear: both;
+}
+.overflow {
+  overflow: auto;
+}
+.menuList {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.hidden {
+  display: none;
+}
+.inactiveButton,
+.activeButton {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  border: solid 1px #83c500;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -moz-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -o-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: -ms-linear-gradient(top, #ffffff, #edf6d9);
+  background-image: linear-gradient(top, #ffffff, #edf6d9);
+  padding: 10px;
+  margin-top: 10px;
+  min-width: 80px;
+  text-align: center;
+  text-align: center;
+  text-align: center;
+  text-align: center;
+  color: #83c500;
+}
+.inactiveButton:after,
+.activeButton:after {
+  content: ' >';
+}
+.inactiveButton:hover,
+.activeButton:hover {
+  color: #83c500;
+}
+.inactiveButton:active,
+.activeButton:active {
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+  background-color: #edf6d9;
+  background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -o-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: -ms-linear-gradient(top, #edf6d9, #ffffff);
+  background-image: linear-gradient(top, #edf6d9, #ffffff);
+}
+.activeButton {
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #336600);
+  background-image: -moz-linear-gradient(top, #70ae00, #336600);
+  background-image: -o-linear-gradient(top, #70ae00, #336600);
+  background-image: -ms-linear-gradient(top, #70ae00, #336600);
+  background-image: linear-gradient(top, #70ae00, #336600);
+  color: #ffffff;
+}
+.activeButton:hover {
+  color: #ffffff;
+}
+.activeButton:active {
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  background-color: #336600;
+  background-image: -webkit-linear-gradient(top, #336600, #70ae00);
+  background-image: -moz-linear-gradient(top, #336600, #70ae00);
+  background-image: -o-linear-gradient(top, #336600, #70ae00);
+  background-image: -ms-linear-gradient(top, #336600, #70ae00);
+  background-image: linear-gradient(top, #336600, #70ae00);
+  color: #ffffff;
+}
+#register {
+  margin-left: 20px;
+}
+.errorMessages {
+  color: #900;
+  border: solid 2px #900;
+  background: #F0D9D9;
+  -moz-box-shadow: 0px 0px 5px #900;
+  -webkit-box-shadow: 0px 0px 5px #900;
+  box-shadow: 0px 0px 5px #900;
+  padding: 10px;
+  padding-bottom: 15px;
+  margin-right: 20px;
+  display: block;
+  border-radius: 10px;
+}
+.errorMessages li {
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+fieldset {
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+fieldset legend {
+  padding: 10px;
+  color: #70ae00;
+  font-weight: bold;
+}
+label span {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  margin-left: 30px;
+  margin-right: 10px;
+  display: block;
+  width: 100px;
+}
+input.textfield {
+  border: solid 2px #83c500;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px;
+  width: 235px;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+}
+input.textfield:focus {
+  box-shadow: 0 0 5px #bfbfbf;
+  -webkit-box-shadow: 0 0 5px #bfbfbf;
+  -moz-box-shadow: 0 0 5px #bfbfbf;
+}
+input.checkbox {
+  margin-right: 15px;
+}
+.checkboxList {
+  width: 150px;
+  margin: 10px;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+}
+input.loginButton {
+  width: 235px;
+  margin-top: 10px;
+}
+/*
+ * HTML Elements
+ */
+body {
+  background: url('../images/header-bg.png') repeat-x top left;
+  min-height: 245px;
+  margin-top: 50px;
+  font-size: 0.8em;
+  position: relative;
+  z-index: 0;
+}
+h1 {
+  background-color: #83c500;
+  background-image: -webkit-linear-gradient(left, #83c500, #70ae00);
+  background-image: -moz-linear-gradient(left, #83c500, #70ae00);
+  background-image: -o-linear-gradient(left, #83c500, #70ae00);
+  background-image: -ms-linear-gradient(left, #83c500, #70ae00);
+  background-image: linear-gradient(left, #83c500, #70ae00);
+  background-color: #83c500;
+  background-image: -webkit-linear-gradient(left, #83c500, #70ae00);
+  background-image: -moz-linear-gradient(left, #83c500, #70ae00);
+  background-image: -o-linear-gradient(left, #83c500, #70ae00);
+  background-image: -ms-linear-gradient(left, #83c500, #70ae00);
+  background-image: linear-gradient(left, #83c500, #70ae00);
+  background-color: #83c500;
+  background-image: -webkit-linear-gradient(left, #83c500, #70ae00);
+  background-image: -moz-linear-gradient(left, #83c500, #70ae00);
+  background-image: -o-linear-gradient(left, #83c500, #70ae00);
+  background-image: -ms-linear-gradient(left, #83c500, #70ae00);
+  background-image: linear-gradient(left, #83c500, #70ae00);
+  background-color: #83c500;
+  background-image: -webkit-linear-gradient(left, #83c500, #70ae00);
+  background-image: -moz-linear-gradient(left, #83c500, #70ae00);
+  background-image: -o-linear-gradient(left, #83c500, #70ae00);
+  background-image: -ms-linear-gradient(left, #83c500, #70ae00);
+  background-image: linear-gradient(left, #83c500, #70ae00);
+  font-family: 'SansationRegular';
+  font-weight: normal;
+  font-size: 2.75em;
+  color: #ffffff;
+  position: absolute;
+  z-index: 2;
+  width: 693px;
+  padding: 15px;
+  padding-left: 50px;
+  padding-right: 30px;
+  margin-top: 25px;
+  margin-left: -45px;
+}
+h1:before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  bottom: -30px;
+  border-width: 0 30px 30px 0;
+  border-right-color: #336600;
+  left: 0;
+}
+h2 {
+  font-family: 'SansationRegular';
+  color: #83c500;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  font-weight: normal;
+}
+h2.itemTitle {
+  display: block;
+  background: #ebebeb;
+  font-family: "Trebuchet MS";
+  font-size: 14px;
+  margin: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-indent: 10px;
+}
+h2.itemTitle a.tag {
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 0.8em;
+  width: auto;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  margin-top: 1px;
+  margin-left: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 10px;
+}
+h2.itemTitle a.tag.red {
+  background: #e31b23;
+}
+h2.itemTitle a.tag.amber {
+  background: #ff9900;
+}
+h2.itemTitle a.tag.green {
+  background: #83c500;
+}
+h2.itemTitle span {
+  float: right;
+  float: right;
+  float: right;
+  float: right;
+  margin-top: 2px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+h2.itemTitle span a {
+  color: #bfbfbf;
+}
+h3 {
+  color: #83c500;
+  line-height: 1.5em;
+  padding-bottom: 10px;
+}
+a {
+  color: #336600;
+  text-decoration: none;
+}
+a:hover {
+  color: rgba(131, 197, 0, 0.5);
+}
+table {
+  font-size: 0.9em;
+  width: 99%;
+}
+table tr {
+  border: solid 1px #70ae00;
+}
+table tr th {
+  background: #70ae00;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+table tr td {
+  text-align: center;
+  padding: 10px;
+}
+#mainHolder {
+  width: 745px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+}
+#mainHolder #main {
+  background: #edf6d9;
+  border: solid 1px #83c500;
+  width: 713px;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  padding: 15px;
+  /* Tabbed Navigation */
+
+  /*
+		 * Main Dashboard (logged-in) items
+		 */
+
+  /*#ccHolder {
+			width: 100%;
+			background: @green;*/
+
+  /*}*/
+
+}
+#mainHolder #main .topNav .homeLink {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  display: block;
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: solid 1px #bfbfbf;
+}
+#mainHolder #main .topNav .homeLink.last {
+  border: none;
+}
+#mainHolder #main .topNav .loginStatus {
+  float: right;
+  float: right;
+  float: right;
+  float: right;
+  width: 225px;
+  color: #bfbfbf;
+  font-size: 0.9em;
+}
+#mainHolder #main .postRibbon {
+  clear: both;
+  clear: both;
+  clear: both;
+  clear: both;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  width: 710px;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+}
+#mainHolder #main #tabNav {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  margin-bottom: 0px;
+}
+#mainHolder #main #tabNav li {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  display: block;
+  border: solid 1px #999999;
+  border-bottom: none;
+  border-right: none;
+  background: #ebebeb;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#mainHolder #main #tabNav li.active {
+  background: #83c500;
+}
+#mainHolder #main #tabNav li.active a {
+  color: #ffffff;
+}
+#mainHolder #main #tabNav li.last {
+  border-right: solid 1px #999999;
+}
+#mainHolder #main .tabContent {
+  width: 95%;
+  background: #ffffff;
+  border: solid 1px #999999;
+  padding: 2%;
+}
+#mainHolder #main .mapIndex {
+  width: 700px;
+  height: 555px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 2px #83c500;
+  background: url('../images/map-index.png') no-repeat;
+}
+#mainHolder #main .mapIndex .signIn {
+  width: 555px;
+  padding: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  overflow: auto;
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -moz-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -o-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -ms-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: linear-gradient(top, #ffffff, #ebebeb);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -moz-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -o-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -ms-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: linear-gradient(top, #ffffff, #ebebeb);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -moz-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -o-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -ms-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: linear-gradient(top, #ffffff, #ebebeb);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -moz-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -o-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: -ms-linear-gradient(top, #ffffff, #ebebeb);
+  background-image: linear-gradient(top, #ffffff, #ebebeb);
+  opacity: 0.95;
+  filter: alpha(opacity=90);
+  /* For IE8 and earlier */
+
+  border: solid 2px #bfbfbf;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  margin-top: 150px;
+}
+#mainHolder #main .mapIndex .signIn .register {
+  min-height: 200px;
+  border-right: solid 1px #bfbfbf;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+}
+#mainHolder #main .mapIndex .signIn .login {
+  margin-left: 15px;
+  float: right;
+  float: right;
+  float: right;
+  float: right;
+}
+#mainHolder #main .mapIndex .signIn .register,
+#mainHolder #main .mapIndex .signIn .login {
+  width: 238px;
+  padding: 15px;
+  padding-top: 0px;
+}
+#mainHolder #main .mapIndex .signIn .register h2,
+#mainHolder #main .mapIndex .signIn .login h2 {
+  text-align: center;
+  text-align: center;
+  text-align: center;
+  text-align: center;
+}
+#mainHolder #main .nav-mapDash {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: solid 1px #999999;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+#mainHolder #main .nav-mapDash li {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+}
+#mainHolder #main .nav-mapDash li a {
+  width: 65px;
+  display: block;
+  padding: 10px;
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -o-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: linear-gradient(top, #ffffff, #bfbfbf);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -o-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: linear-gradient(top, #ffffff, #bfbfbf);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -o-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: linear-gradient(top, #ffffff, #bfbfbf);
+  background-color: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -o-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #ffffff, #bfbfbf);
+  background-image: linear-gradient(top, #ffffff, #bfbfbf);
+  color: #83c500;
+}
+#mainHolder #main .nav-mapDash li a:active {
+  background-color: #bfbfbf;
+  background-image: -webkit-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -moz-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -o-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -ms-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: linear-gradient(top, #bfbfbf, #ffffff);
+  background-color: #bfbfbf;
+  background-image: -webkit-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -moz-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -o-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -ms-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: linear-gradient(top, #bfbfbf, #ffffff);
+  background-color: #bfbfbf;
+  background-image: -webkit-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -moz-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -o-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -ms-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: linear-gradient(top, #bfbfbf, #ffffff);
+  background-color: #bfbfbf;
+  background-image: -webkit-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -moz-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -o-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: -ms-linear-gradient(top, #bfbfbf, #ffffff);
+  background-image: linear-gradient(top, #bfbfbf, #ffffff);
+}
+#mainHolder #main .nav-mapDash li.selected a {
+  background-color: #999999;
+  background-image: -webkit-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -o-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #999999, #bfbfbf);
+  background-image: linear-gradient(top, #999999, #bfbfbf);
+  background-color: #999999;
+  background-image: -webkit-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -o-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #999999, #bfbfbf);
+  background-image: linear-gradient(top, #999999, #bfbfbf);
+  background-color: #999999;
+  background-image: -webkit-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -o-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #999999, #bfbfbf);
+  background-image: linear-gradient(top, #999999, #bfbfbf);
+  background-color: #999999;
+  background-image: -webkit-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -moz-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -o-linear-gradient(top, #999999, #bfbfbf);
+  background-image: -ms-linear-gradient(top, #999999, #bfbfbf);
+  background-image: linear-gradient(top, #999999, #bfbfbf);
+  color: #ffffff;
+}
+#mainHolder #main .pins {
+  float: right;
+  float: right;
+  float: right;
+  float: right;
+  width: 240px;
+  font-size: 1.8em;
+}
+#mainHolder #main .pins img {
+  margin-left: 10px;
+}
+#mainHolder #main #map,
+#mainHolder #main #dashboard {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  clear: both;
+  clear: both;
+  clear: both;
+  clear: both;
+  width: 706px;
+  min-height: 550px;
+  border: solid 2px #83c500;
+}
+#mainHolder #main #map#dashboard,
+#mainHolder #main #dashboard#dashboard {
+  border: none;
+}
+#mainHolder #main #map .itemMap,
+#mainHolder #main #dashboard .itemMap {
+  position: relative;
+}
+#mainHolder #main #map .itemMap span,
+#mainHolder #main #dashboard .itemMap span {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #336600;
+  color: #ffffff;
+  padding: 5px;
+}
+#mainHolder #main #map .dashImage,
+#mainHolder #main #dashboard .dashImage {
+  width: 150px;
+  position: relative;
+  z-index: 5;
+  float: right;
+  float: right;
+  float: right;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+#mainHolder #sidePanelHolder {
+  display: none;
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  margin-top: 110px;
+  width: 212px;
+  background: #ffffff;
+  border: solid 1px #bfbfbf;
+  border-left: none;
+  -webkit-box-shadow: inset 10px 0px 10px 1px #222;
+  -moz-box-shadow: inset 10px 0px 10px 1px #222;
+  box-shadow: inset 10px 0px 10px 1px #DDD;
+  padding-bottom: 20px;
+}
+#mainHolder #sidePanelHolder .side-content {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  margin-left: 20px;
+  width: 180px;
+  padding-top: 20px;
+  color: #bfbfbf;
+  font-family: "Trebuchet MS";
+}
+#mainHolder #sidePanelHolder .side-content img {
+  padding-bottom: 15px;
+}
+#mainHolder #sidePanelHolder .side-content p {
+  margin-left: 10px;
+  line-height: 20px;
+}
+footer {
+  width: 960px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px;
+}
+footer ul li {
+  float: left;
+  float: left;
+  float: left;
+  float: left;
+  margin-right: 5px;
+  padding-right: 5px;
+  color: #bfbfbf;
+  border-right: solid 1px #bfbfbf;
+  line-height: 1em;
+}
+footer ul li.last {
+  border: none;
+}
+footer ul li a {
+  color: #bfbfbf;
+}
+/*
+ * Defines the flash message style 
+ */
+.notification {
+  text-align: center;
+  display: none;
+  width: 100%;
+  position: fixed;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2em;
+  overflow: visible;
+  z-index: 100;
+}
+.success {
+  color: #ffffff;
+  border-bottom: solid 2px #83c500;
+  background: #70ae00;
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #83c500);
+  background-image: -moz-linear-gradient(top, #70ae00, #83c500);
+  background-image: -o-linear-gradient(top, #70ae00, #83c500);
+  background-image: -ms-linear-gradient(top, #70ae00, #83c500);
+  background-image: linear-gradient(top, #70ae00, #83c500);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #83c500);
+  background-image: -moz-linear-gradient(top, #70ae00, #83c500);
+  background-image: -o-linear-gradient(top, #70ae00, #83c500);
+  background-image: -ms-linear-gradient(top, #70ae00, #83c500);
+  background-image: linear-gradient(top, #70ae00, #83c500);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #83c500);
+  background-image: -moz-linear-gradient(top, #70ae00, #83c500);
+  background-image: -o-linear-gradient(top, #70ae00, #83c500);
+  background-image: -ms-linear-gradient(top, #70ae00, #83c500);
+  background-image: linear-gradient(top, #70ae00, #83c500);
+  background-color: #70ae00;
+  background-image: -webkit-linear-gradient(top, #70ae00, #83c500);
+  background-image: -moz-linear-gradient(top, #70ae00, #83c500);
+  background-image: -o-linear-gradient(top, #70ae00, #83c500);
+  background-image: -ms-linear-gradient(top, #70ae00, #83c500);
+  background-image: linear-gradient(top, #70ae00, #83c500);
+}
+.error {
+  color: #ffffff;
+  border-bottom: solid 2px #e31b23;
+  background-color: #f18d9a;
+  background-image: -webkit-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -moz-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -o-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -ms-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: linear-gradient(top, #f18d9a, #e31b23);
+  background-color: #f18d9a;
+  background-image: -webkit-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -moz-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -o-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -ms-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: linear-gradient(top, #f18d9a, #e31b23);
+  background-color: #f18d9a;
+  background-image: -webkit-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -moz-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -o-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -ms-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: linear-gradient(top, #f18d9a, #e31b23);
+  background-color: #f18d9a;
+  background-image: -webkit-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -moz-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -o-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -ms-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: linear-gradient(top, #f18d9a, #e31b23);
+}
