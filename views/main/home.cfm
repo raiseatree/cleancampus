@@ -1,4 +1,4 @@
-<cfparam name="data">
+<cfparam name="data"><cfdump var="#data#">
 <cfoutput>
 	
 <!---<script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyD51ESXcA_5O_tvWhezknGz9OcF-aAf7VQ"></script>
