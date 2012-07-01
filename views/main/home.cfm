@@ -119,7 +119,7 @@ $(function() {
 						<cfloop query="data.redProblems">
 							<div class="overflow">
 								<h2 class="itemTitle"><a href="##" class="tag red">#typeLabel#</a>#title# <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-								<p><cfif IsDefined("image") AND image GT ''>#imageTag('dropzone/#image#')#<cfelse>#imageTag('no-image.png')#</cfif> #description#</p>
+								<p><cfif IsDefined("image") AND image GT ''><a href="/images/dropzone/#image#" class="lightbox">#imageTag('dropzone/#image#')#</a><cfelse>#imageTag('no-image.png')#</cfif> #description#</p>
 								<p>#imageTag('map-pin.png')#</p>
 							</div>
 						</cfloop>
@@ -133,7 +133,7 @@ $(function() {
 						<cfloop query="data.amberProblems">
 							<div class="overflow">
 								<h2 class="itemTitle"><a href="##" class="tag amber">#typeLabel#</a>#title# <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-								<p><cfif IsDefined("image") AND image GT ''>#imageTag('dropzone/#image#')#<cfelse>#imageTag('no-image.png')#</cfif> #description#</p>
+								<p><cfif IsDefined("image") AND image GT ''><a href="/images/dropzone/#image#" class="lightbox">#imageTag('dropzone/#image#')#</a><cfelse>#imageTag('no-image.png')#</cfif> #description#</p>
 								<p class="itemMap">
 									<span>Click map to enlarge</span>
 									<a href="http://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=#latitude#,#longitude#&zoom=17&&size=320x240&scale=2&markers=color:red%7C#latitude#,#longitude#&sensor=false" class="lightbox">
@@ -152,7 +152,7 @@ $(function() {
 						<cfloop query="data.greenProblems">
 							<div class="overflow">
 								<h2 class="itemTitle"><a href="##" class="tag green">#typeLabel#</a>#title# <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-								<p><cfif IsDefined("image") AND image GT ''>#imageTag('dropzone/#image#')#<cfelse>#imageTag('no-image.png')#</cfif> #description#</p>
+								<p><cfif IsDefined("image") AND image GT ''><a href="/images/dropzone/#image#" class="lightbox">#imageTag('dropzone/#image#')#</a><cfelse>#imageTag('no-image.png')#</cfif> #description#</p>
 								<p>#imageTag('map-pin.png')#</p>
 							</div>
 						</cfloop>
