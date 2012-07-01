@@ -12,16 +12,10 @@
 
 	<cffunction name="add">
 		
-		<!--- 
-			NOTE - http://stackoverflow.com/questions/936855/file-upload-to-http-server-in-iphone-programming
-			See this page for an example of uploading files to an HTTP server
-			---
-			Would be good to resize the image down to 1024px (width) on the iPhone to save on data traffic
-		--->
 		<!--- See if we have an image to process into a blob --->
 		<cfif IsDefined("params.image") AND params.image GT ''>
 			<!--- Set the upload file location --->
-			<cfset fileDropLocation = ExpandPath('files/dropzone')>
+			<cfset fileDropLocation = ExpandPath('images/dropzone')>
 		
 			<!--- Try to upload the file --->
 			<cftry>
@@ -42,7 +36,7 @@
 				<cfset fileLocation = fileDropLocation & '/' & cffile.ServerFile>
 				
 				<!--- Convert image to blob --->
-				<cfset params.image = ImageGetBlob(fileLocation)>
+				<cfset params.image = cffile.ServerFile>
 				
 				<cfcatch type="any">
 					
@@ -88,20 +82,6 @@
 		<cfelse>
 			<cfset rtn.result = true>
 			<cfset rtn.message = "Problem added successfully">
-			
-			<!--- Try and delete the temporary file --->
-			<cftry>
-				<cffile action="delete" file="#fileLocation#">
-				<cfcatch type="any"></cfcatch>
-			</cftry>
-		</cfif>
-		
-		<!--- Check if we need to delete the image we uploaded --->
-		<cfif IsDefined("fileLocation")>
-	
-			<!--- Delete the file --->	
-			<cffile action="delete" file="#fileLocation#"/>
-	
 		</cfif>
 		
 		<!--- Render the message back to the user --->

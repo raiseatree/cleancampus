@@ -119,7 +119,8 @@ $(function() {
 						<cfloop query="data.redProblems">
 							<div class="overflow">
 								<h2 class="itemTitle"><a href="##" class="tag red">#typeLabel#</a>#title# <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-								<p>#loadImage(image)# #description#</p>
+								<!---<p>#loadImage(image)# #description#</p>--->
+								<p><cfif IsDefined("image")>#imageTag('dropzone/#image#')#<cfelse>#imageTag('no-image.png')#</cfif> #description#</p>
 								<p>#imageTag('map-pin.png')#</p>
 							</div>
 						</cfloop>
