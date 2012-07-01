@@ -14,3 +14,7 @@
 <cffunction name="LoadSiteTitle">
 	<cfreturn "My Clean Campus">
 </cffunction>
+
+<cffunction name="LoadSiteURL">
+	<cfreturn "http://www.mycleancampus.com">
+</cffunction>

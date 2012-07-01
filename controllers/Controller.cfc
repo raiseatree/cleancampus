@@ -10,7 +10,8 @@
 	<cffunction name="checkAPIToken">
 	
 		<!--- Set the return structure --->
-	
+		<cfset rtn = StructNew()>
+			
 		<!--- Run on every request to ensure access is authorised --->
 		<cfif IsDefined("params.apitoken")>
 			
@@ -21,20 +22,16 @@
 			<cfset verify = model("APIUser").findOneByAPIToken(APIToken=params.apitoken, returnAs="query")>
 			
 			<!--- Check API Token is valid --->
-			<cfif verify.RecordCount EQ 1>
-				
-			<cfelse>
+			<cfif verify.RecordCount EQ 0>
 				<cfset rtn.result = false>
 				<cfset rtn.message = "API Token not found - Please check and retry">
 				<cfset renderWith(rtn)>
 			</cfif>
 		
 		<cfelse>
-			
 			<!--- No API Token provided --->
 			<cfset rtn.result = false>
 			<cfset rtn.message = "Doh - Remember to include your API Token in all requests">
-
 		</cfif>
 		
 		<!--- Check if we need to render the error message in the correct format --->
