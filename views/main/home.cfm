@@ -17,7 +17,7 @@ $(function() {
 				
 	#loadLoggedInHeader()#
 	
-	<h1>Welcome to Clean Campus!</h1>
+	<h1>Welcome to #LoadSiteTitle()#!</h1>
 	
 	<header class="postRibbon">
 		<ul class="nav-mapDash">

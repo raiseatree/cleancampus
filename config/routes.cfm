@@ -1,2 +1,2 @@
-<cfset addRoute(name="home", pattern="", controller="main", action="register")>
-<cfset addRoute(name="logout", pattern="", controller="user", action="logout")>
+<cfset addRoute(name="home", pattern="", controller="main", action="home")>
+<cfset addRoute(name="logout", pattern="/logout", controller="user", action="logout")>

@@ -1,4 +1,2 @@
-<!---
-	Place settings that should go in the Application.cfc's "this" scope here.
-	<cfset this.name = "MyAppName">
---->
+<!--- Create the session timeout --->
+<cfset this.sessionTimeout = CreateTimeSpan(1,0,0,0)> 

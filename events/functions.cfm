@@ -10,3 +10,7 @@
 <cffunction name="GetReporterKey">
 	<cfreturn "AndyStephenson">
 </cffunction>
+
+<cffunction name="LoadSiteTitle">
+	<cfreturn "My Clean Campus">
+</cffunction>

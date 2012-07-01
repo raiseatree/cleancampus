@@ -16,15 +16,14 @@
 			#includeContent()#	
 		</div>
 		
-		<!---<footer>
+		<footer>
 			<ul>
 				<li><a href="##">About</a></li>
 				<li><a href="##">Contact</a></li>
 				<li><a href="##">Press</a></li>
-				<li><a href="##">Yada Yada</a></li>
-				<li class="last">&copy; Clean Campus #year(now())#</li>
+				<li class="last">&copy; #LoadSiteTitle()# 2011-#year(now())#</li>
 			</ul>
-		</footer>--->
+		</footer>
 		
 		<!--- Display any flash messages --->
 		<cfif NOT flashIsEmpty()>

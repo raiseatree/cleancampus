@@ -48,8 +48,14 @@
 	
 		<!--- Check if user exists in session and redirect to login if not --->
 		<cfif Not(IsUserLoggedIn()) OR Not(IsDefined("SESSION.userID"))>
-			<cfset flashInsert(error="You must login before accessing that page")>
-			<cfset redirectTo(controller="main", action="register")>
+				
+			<cfif IsDefined("cookie.userID")>
+				<cfdump var="We have found a cookie"><cfabort>
+			<cfelse>
+				<cfset flashInsert(error="You must login before accessing that page")>
+				<cfset redirectTo(controller="main", action="register")>
+			</cfif>
+			
 		</cfif>	
 		
 	</cffunction>

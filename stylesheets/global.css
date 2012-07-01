@@ -2986,7 +2986,7 @@ table tr td {
   line-height: 20px;
 }
 footer {
-  width: 960px;
+  width: 745px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -3014,6 +3014,10 @@ footer ul {
   padding: 0px;
   margin: 0px;
   margin-top: 20px;
+  float: right;
+  float: right;
+  float: right;
+  float: right;
 }
 footer ul li {
   float: left;
