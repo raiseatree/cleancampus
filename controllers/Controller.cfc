@@ -35,7 +35,7 @@
 		</cfif>
 		
 		<!--- Check if we need to render the error message in the correct format --->
-		<cfif IsDefined("rtn")>
+		<cfif IsDefined("rtn.result") AND rtn.result EQ false>
 			<cfset renderWith(rtn)>
 		</cfif>
 	

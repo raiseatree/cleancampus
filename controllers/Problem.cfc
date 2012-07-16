@@ -6,7 +6,7 @@
 		<cfset provides("html,json")>
 		
 		<!--- Make sure we run API calls through the API Token Checker in controller.cfc --->
-		<cfset filters(through="checkAPIToken", only="add")>
+		<cfset filters(through="checkAPIToken", only="add,view")>
 	
 	</cffunction>
 
@@ -115,6 +115,37 @@
 	
 		<cfdump var="#rtn#"><cfabort>
 
+	</cffunction>
+
+	<cffunction name="view">
+	
+		<!--- Create return response --->
+		<cfset local.rtn = StructNew()>
+		
+		<cfif IsDefined("params.key")>
+		
+			<!--- Load all problems for a university --->
+			<cfset problems = model("problem").findAll(
+					where="universityID=#params.key# AND (updatedAt>='#DateFormat( DateAdd( 'd', -30, now() ), 'yyyy-mm-dd')#' OR statusLabel <> 'Fixed')", 
+					include="status,problemtype", 
+					order="createdat desc")>
+			
+			<cfif problems.RecordCount GT 0>
+				<cfset local.rtn.result = true>
+				<cfset local.rtn.data = problems>
+			<cfelse>
+				<cfset local.rtn.result = false>
+				<cfset local.rtn.message = 'No problems found for this university'>
+			</cfif>
+					
+		<cfelse>
+			<cfset local.rtn.result = false>
+			<cfset local.rtn.message = 'Please provide a university ID'>
+		</cfif>
+		
+		<!--- Now send the data back in the right format --->
+		<cfset renderWith(local.rtn)>
+	
 	</cffunction>
 
 </cfcomponent>

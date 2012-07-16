@@ -40,9 +40,5 @@
 		</cfif>--->
 		
 	</cffunction>
-
-	<cffunction name="index"></cffunction>
-	
-	
 	
 </cfcomponent>
