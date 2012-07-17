@@ -14,8 +14,13 @@
 		
 		<!---<cftry>--->
 			
+			<cflog file="AddProblem" type="info" text="Reached method call">
+			
 			<!--- See if we have an image to process into a blob --->
 			<cfif IsDefined("params.image") AND params.image GT ''>
+				
+				<cflog file="AddProblem" type="info" text="We have an image to upload">
+				
 				<!--- Set the upload file location --->
 				<cfset fileDropLocation = ExpandPath('images/dropzone')>
 			
@@ -26,6 +31,8 @@
 						nameconflict="makeunique" 
 						destination="#fileDropLocation#">
 						
+					<cflog file="AddProblem" type="info" text="Uploaded the image">
+						
 					<cfimage 
 						action="resize" 
 						source="#fileDropLocation#/#cffile.ServerFile#" 
@@ -34,6 +41,8 @@
 						height="" 
 						overwrite="yes">
 						
+					<cflog file="AddProblem" type="info" text="Resized the image">	
+					
 					<!--- Set file location --->
 					<cfset fileLocation = fileDropLocation & '/' & cffile.ServerFile>
 					
@@ -41,31 +50,45 @@
 					<cfset params.image = cffile.ServerFile>
 				
 			</cfif>
-		
+			
+			<cflog file="AddProblem" type="info" text="Decrypting the reporterID">
+			
 			<!--- Decrypt Reporter ID --->
 			<cfset params.reporterID = decrypt(params.reporterID, GetReporterKey(), "CFMX_COMPAT", "Hex")>
+		
+			<cflog file="AddProblem" type="info" text="Trying to find the reporter from the db">
 		
 			<!--- Check reporter exists in the DB --->
 			<cfset checkReporter = model("reporter").findOneByID(ID=params.reporterID, returnAs="query")>
 		
 			<!--- Check reporter exists --->
 			<cfif checkReporter.RecordCount EQ 0>
+				
+				<cflog file="AddProblem" type="info" text="Reporter not found">
+				
 				<cfset rtn.result = false>
 				<cfset rtn.message = 'Reporter not found in DB'>
-				<cfreturn rtn>
+				<cfset renderWith(rtn)>
 			</cfif>
+		
+			<cflog file="AddProblem" type="info" text="About to create the problem">
 		
 			<!--- Create a new Problem instance --->
 			<cfset problem = model("problem").create(params)>
 			
 			<!--- Check if we had any errors --->
 			<cfif problem.hasErrors()>
+				<cflog file="AddProblem" type="info" text="Errors whilst adding the problem">
 				<cfset rtn.result = false>
 				<cfset rtn.message = problem.allErrors()>
 			<cfelse>
 				
+				<cflog file="AddProblem" type="info" text="successfully added error">
+				
 				<!--- Tag in an email alert too --->
 				<cfset sendEmails = problem.sendEmails()>
+				
+				<cflog file="AddProblem" type="info" text="Sent emails">
 			
 				<!--- Check the response to see if we assigned this problem to someone --->
 				<cfif sendEmails.status EQ 'assigned'>
