@@ -13,6 +13,7 @@
 	<cffunction name="add">
 		
 		<cftry>
+			
 			<!--- See if we have an image to process into a blob --->
 			<cfif IsDefined("params.image") AND params.image GT ''>
 				<!--- Set the upload file location --->
@@ -92,7 +93,7 @@
 					<cfset rtn.message = 'Error uploading image - please check it''s a JPG or PNG'>
 				</cfif>
 				
-				<cfreturn rtn>
+				<cfset renderWith(rtn)>
 			</cfcatch>
 			
 		</cftry>
