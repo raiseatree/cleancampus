@@ -12,7 +12,7 @@
 
 	<cffunction name="add">
 		
-		<cftry>
+		<!---<cftry>--->
 			
 			<!--- See if we have an image to process into a blob --->
 			<cfif IsDefined("params.image") AND params.image GT ''>
@@ -78,7 +78,7 @@
 
 			</cfif>
 
-			<cfcatch type="any">
+			<!---<cfcatch type="any">
 					
 				<cfmail to="andy@touchtapapps.com" from="andy@raiseatree.co.uk" server="smtp.gmail.com" port="465" username="andy@raiseatree.co.uk" password="agam3mn0N" usessl="true" subject="Dump" type="html">
 					<cfdump var="#params#" label="params">
@@ -96,7 +96,7 @@
 				<cfset renderWith(rtn)>
 			</cfcatch>
 			
-		</cftry>
+		</cftry>--->
 		
 		<!--- Render the message back to the user --->
 		<cfset renderWith(rtn)>
