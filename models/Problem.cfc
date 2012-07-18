@@ -19,7 +19,7 @@
 		<!--- Load all the users to be alerted --->
 		<cfset users = model("user").findAll(
 				where="universityID=#this.universityID# AND problemTypeID=#this.problemTypeID#", 
-				include="problemtype")>
+				include="userproblemtype(problemtype)")>
 
 		<!--- Loop through the users and send them each an email --->
 		<cfloop query="users">
