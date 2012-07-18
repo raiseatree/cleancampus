@@ -12,6 +12,12 @@
 
 	<cffunction name="add">
 		
+		<!--- Increase page timeout --->
+		<cfsetting requesttimeout="120">
+		
+		<!--- TODO Refactor this method so we take in all the data and add it to a queue that then gets batched so we can return the response to the client asap --->
+		
+		
 		<!---<cftry>--->
 			
 			<cflog file="AddProblem" type="info" text="Reached method call">
