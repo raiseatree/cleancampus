@@ -91,7 +91,7 @@
 				
 				<cflog file="AddProblem" type="info" text="successfully added error">
 				
-				<!--- Tag in an email alert too --->
+				<!--- TODO Add in Email Functionality - Tag in an email alert too 
 				<cfset sendEmails = problem.sendEmails()>
 				
 				<cflog file="AddProblem" type="info" text="Sent emails">
@@ -100,7 +100,7 @@
 				<cfif sendEmails.status EQ 'assigned'>
 					<!--- Now update the status of the problem --->
 					<cfset updateStatus = problem.update(statusID=2)>	
-				</cfif>
+				</cfif>--->
 			
 				<cfset rtn.result = true>
 				<cfset rtn.message = "Problem added successfully">
