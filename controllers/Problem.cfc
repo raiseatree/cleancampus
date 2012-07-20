@@ -16,12 +16,7 @@
 		<cfsetting requesttimeout="120">
 		
 		<!--- TODO Refactor this method so we take in all the data and add it to a queue that then gets batched so we can return the response to the client asap --->
-	
-		<cfmail to="andy@raiseatree.co.uk" from="hello@raiseatree.co.uk" subject="Data" server="smto.gmail.com" username="hello@raiseatree.co.uk" password="manutd88">
-			<cfdump var="#params#">
-		</cfmail>
-	
-			
+		
 		<!---<cftry>--->
 			
 			<cflog file="AddProblem" type="info" text="Reached method call">
@@ -108,6 +103,7 @@
 			
 				<cfset rtn.result = true>
 				<cfset rtn.message = "Problem added successfully">
+				<cfset rtn.problemID = problem.ID>
 
 			</cfif>
 
@@ -135,6 +131,8 @@
 		<cfset renderWith(rtn)>
 	
 	</cffunction>
+	
+	<cffunction name="addImage" hint="I'm called by the iPhone client to save an image"></cffunction>
 
 	<cffunction name="new">
 	
