@@ -41,6 +41,11 @@
 				<cfset rtn.message = 'Reporter not found in DB'>
 				<cfset renderWith(rtn)>
 			</cfif>
+			
+			<!--- Check if we tried uploading an image we null this (we upload images in the background on the iPhone app after receiving a success message from the server) --->
+			<cfif IsDefined("params.image") AND params.image GT ''>
+				<cfset params.image = ''>
+			</cfif>
 		
 			<cflog file="AddProblem" type="info" text="About to create the problem">
 		
