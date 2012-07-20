@@ -117,19 +117,20 @@
 				<cflog file="AddImage" type="info" text="We have an image to upload">
 				
 				<!--- Set the upload file location --->
+				<cfset dropLocationOriginal = ExpandPath('images/dropzone/temp')>
 				<cfset fileDropLocation = ExpandPath('images/dropzone')>
 			
 				<!--- Try to upload the file --->
 				<cffile action="upload" 
 					filefield="image" 
 					nameconflict="makeunique" 
-					destination="#fileDropLocation#">
+					destination="#dropLocationOriginal#">
 					
 				<cflog file="AddImage" type="info" text="Uploaded the image">
 					
 				<cfimage 
 					action="resize" 
-					source="#fileDropLocation#/#cffile.ServerFile#" 
+					source="#dropLocationOriginal#/#cffile.ServerFile#" 
 					destination="#fileDropLocation#/#cffile.ServerFile#" 
 					width="640" 
 					height="" 
