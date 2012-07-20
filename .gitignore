@@ -3,6 +3,7 @@ plugins/**/*
 
 # Any other folders
 log/
+WEB-INF/
 
 # files directory where uploads go
 files
@@ -14,4 +15,3 @@ db/sql
 *.metadata
 mxunit
 *.log
-WEB-INF/railo/cfclasses/*
