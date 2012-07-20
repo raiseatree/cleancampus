@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>#pageTitle#</title>
+		<meta name="google-site-verification" content="GvxhN8Q-PuIaIYovONx1emScFMUXTBchoQIqbp8xJBg" />
 		#javaScriptIncludeTag(sources="jquery-1.6.2.min,jquery-ui-1.8.18.min,jquery.globalfunctions,jquery.livequery,jquery.lightbox-0.5.min")#
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
