@@ -3,3 +3,5 @@
 	A variable set in this file will override the one in "config/settings.cfm".
 	Example: <cfset set(errorEmailAddress="someone@somewhere.com")>
 --->
+<!--- Add password to stop application reloading itself --->
+<cfset set(reloadPassword="raiseatree")>

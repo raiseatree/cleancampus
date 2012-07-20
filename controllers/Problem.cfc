@@ -150,7 +150,10 @@
 				<cfset params.image = cffile.ServerFile>
 				
 				<!--- Update the problem --->
-				<cfset result = problem.update(image=params.image)>
+				<cfset result = problem.update( image=params.image, active=1 )>
+				
+				<!--- Hook in the email send profile --->
+				<cfset emailResult = problem.sendEmails()>
 				
 				<!--- Check the response --->
 				<cfif result EQ true>
@@ -158,6 +161,7 @@
 					<!--- Set the return --->
 					<cfset rtn.result = true>
 					<cfset rtn.message = 'Image added successfully'>
+					<cfset rtn.ID = problem.ID>
 				<cfelse>
 					<cflog file="AddImage" type="error" text="Error updating the problem">	
 					<!--- Set the return --->
@@ -173,6 +177,7 @@
 			<cfcatch type="any">
 				<cfset rtn.result = false>
 				<cfset rtn.message = 'An error occurred - sorry'>
+				<cfdump var="#cfcatch#">
 			</cfcatch>	
 			
 		</cftry>

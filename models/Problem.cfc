@@ -24,9 +24,11 @@
 		<!--- Loop through the users and send them each an email --->
 		<cfloop query="users">
 		
-			<cfmail to="#users.email#" from="andy@raiseatree.co.uk" server="smtp.gmail.com" port="465" username="andy@raiseatree.co.uk" password="agam3mn0N" usessl="true" subject="#LoadSiteTitle()# - New Problem" type="html">
-				<p>You have been assigned a new problem! Please log in to #LoadSiteTitle()# to view it.</p>
-				<p><a href="#LoadSiteURL()#">#LoadSiteURL()#</a></p>
+			<cfmail to="#users.email#" from="#LoadEmailFrom()#" server="#LoadEmailServer()#" port="#LoadEmailPort()#" username="#LoadEmailUsername()#" password="#LoadEmailPassword()#" usessl="true" subject="#LoadSiteTitle()# - New Problem" type="html">
+				<p>A new problem has been reported on your campus and you have been assigned!</p>
+				<p><img src="#LoadSiteURL()#/images/dropzone/#this.image#"></p>
+				<p>Please log in to #LoadSiteTitle()# to view full details of the problem and to action it.</p>
+				<p><a href="#LoadSiteURL()#">#LoadSiteTitle()# Login</a></p>
 			</cfmail>
 		
 		</cfloop>

@@ -4,7 +4,7 @@
 	
 		<!--- Associations --->
 		<cfset belongsTo("university")>
-		<cfset hasMany("userproblemtypes")>
+		<cfset hasMany("userproblemtype")>
 	
 	</cffunction>
 
