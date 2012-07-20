@@ -177,7 +177,7 @@
 			<cfcatch type="any">
 				<cfset rtn.result = false>
 				<cfset rtn.message = 'An error occurred - sorry'>
-				<cfdump var="#cfcatch#">
+				<cfdump var="#cfcatch#"><cfabort>
 			</cfcatch>	
 			
 		</cftry>
