@@ -6,7 +6,7 @@
 		<cfset provides("html,json")>
 		
 		<!--- Make sure we run API calls through the API Token Checker in controller.cfc --->
-		<cfset filters(through="checkAPIToken", only="add,view")>
+		<cfset filters(through="checkAPIToken", only="add,addImage,view")>
 	
 	</cffunction>
 
@@ -15,48 +15,14 @@
 		<!--- Increase page timeout --->
 		<cfsetting requesttimeout="120">
 		
+		<!--- Create a return structure --->
+		<cfset rtn = StructNew()>
+		
 		<!--- TODO Refactor this method so we take in all the data and add it to a queue that then gets batched so we can return the response to the client asap --->
 		
 		<!---<cftry>--->
 			
-			<cflog file="AddProblem" type="info" text="Reached method call">
-			
-			<!--- See if we have an image to process into a blob --->
-			<cfif IsDefined("params.image") AND params.image GT ''>
-				
-				<cflog file="AddProblem" type="info" text="We have an image to upload">
-				
-				<!--- Set the upload file location --->
-				<cfset fileDropLocation = ExpandPath('images/dropzone')>
-			
-				<!--- Try to upload the file --->
-				
-					<cffile action="upload" 
-						filefield="image" 
-						nameconflict="makeunique" 
-						destination="#fileDropLocation#">
-						
-					<cflog file="AddProblem" type="info" text="Uploaded the image">
-						
-					<cfimage 
-						action="resize" 
-						source="#fileDropLocation#/#cffile.ServerFile#" 
-						destination="#fileDropLocation#/#cffile.ServerFile#" 
-						width="640" 
-						height="" 
-						overwrite="yes">
-						
-					<cflog file="AddProblem" type="info" text="Resized the image">	
-					
-					<!--- Set file location --->
-					<cfset fileLocation = fileDropLocation & '/' & cffile.ServerFile>
-					
-					<!--- Convert image to blob --->
-					<cfset params.image = cffile.ServerFile>
-				
-			</cfif>
-			
-			<cflog file="AddProblem" type="info" text="Decrypting the reporterID">
+			<cflog file="AddProblem" type="info" text="Reached method call and Decrypting the reporterID">
 			
 			<!--- Decrypt Reporter ID --->
 			<cfset params.reporterID = decrypt(params.reporterID, GetReporterKey(), "CFMX_COMPAT", "Hex")>
@@ -103,7 +69,7 @@
 			
 				<cfset rtn.result = true>
 				<cfset rtn.message = "Problem added successfully">
-				<cfset rtn.problemID = problem.ID>
+				<cfset rtn.ID = problem.ID>
 
 			</cfif>
 
@@ -132,7 +98,83 @@
 	
 	</cffunction>
 	
-	<cffunction name="addImage" hint="I'm called by the iPhone client to save an image"></cffunction>
+	<cffunction name="addImage" hint="I'm called by the iPhone client to save an image">
+	
+		<!--- Increase page timeout --->
+		<cfsetting requesttimeout="120">
+		
+		<!--- Create a return structure --->
+		<cfset rtn = StructNew()>
+		
+		<cftry>
+		
+			<!--- See if we have an image to process into a blob --->
+			<cfif IsDefined("params.image") AND IsDefined("params.ID") AND params.image GT '' AND IsNumeric(params.ID)>
+				
+				<!--- Load the problem --->
+				<cfset problem = model("problem").findOneByID(params.ID)>
+				
+				<cflog file="AddImage" type="info" text="We have an image to upload">
+				
+				<!--- Set the upload file location --->
+				<cfset fileDropLocation = ExpandPath('images/dropzone')>
+			
+				<!--- Try to upload the file --->
+				<cffile action="upload" 
+					filefield="image" 
+					nameconflict="makeunique" 
+					destination="#fileDropLocation#">
+					
+				<cflog file="AddImage" type="info" text="Uploaded the image">
+					
+				<cfimage 
+					action="resize" 
+					source="#fileDropLocation#/#cffile.ServerFile#" 
+					destination="#fileDropLocation#/#cffile.ServerFile#" 
+					width="640" 
+					height="" 
+					overwrite="yes">
+					
+				<cflog file="AddImage" type="info" text="Resized the image">	
+				
+				<!--- Set file location --->
+				<cfset fileLocation = fileDropLocation & '/' & cffile.ServerFile>
+				
+				<!--- Save the file name --->
+				<cfset params.image = cffile.ServerFile>
+				
+				<!--- Update the problem --->
+				<cfset result = problem.update(image=params.image)>
+				
+				<!--- Check the response --->
+				<cfif result EQ true>
+					<cflog file="AddImage" type="info" text="Finished and returning to the user">	
+					<!--- Set the return --->
+					<cfset rtn.result = true>
+					<cfset rtn.message = 'Image added successfully'>
+				<cfelse>
+					<cflog file="AddImage" type="error" text="Error updating the problem">	
+					<!--- Set the return --->
+					<cfset rtn.result = false>
+					<cfset rtn.message = 'Error updating the problem'>
+				</cfif>
+					
+			<cfelse>
+				<cfset rtn.result = false>
+				<cfset rtn.message = 'Incorrect input params - need an image and an id'>
+			</cfif>
+		
+			<cfcatch type="any">
+				<cfset rtn.result = false>
+				<cfset rtn.message = 'An error occurred - sorry'>
+			</cfcatch>	
+			
+		</cftry>
+		
+		<!--- Render the message back to the user --->
+		<cfset renderWith(rtn)>
+	
+	</cffunction>
 
 	<cffunction name="new">
 	

@@ -1,0 +1,17 @@
+# unpacked plugin folders
+plugins/**/*
+
+# Any other folders
+log/
+
+# files directory where uploads go
+files
+
+# DBMigrate plugin: generated SQL
+db/sql
+
+# Other files and folders to ignore
+*.metadata
+mxunit
+*.log
+WEB-INF/railo/cfclasses/*
