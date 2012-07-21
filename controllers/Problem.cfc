@@ -160,8 +160,12 @@
 				
 				<cfset result = problem.update( image=params.image )>
 				
+				<cflog file="AddImage" type="info" text="Saved problem image">
+				
 				<!--- Hook in the email send profile --->
 				<cfset emailResult = problem.sendEmails()>
+				
+				<cflog file="AddImage" type="info" text="Sent emails">
 				
 				<!--- Check the result --->
 				<cfif IsDefined("emailResult.status") AND emailResult.status EQ 'assigned'>
@@ -170,11 +174,15 @@
 					<cfset status = model("status").findOne(where="statusLabel='Unassigned'", returnAs="query")>
 				</cfif>
 				
+				<cflog file="AddImage" type="info" text="Got a status of #status.statusLabel#">
+				
 				<!--- Check the result and update the problem --->
-				<cfset result = problem.update( statusID=status.ID )>
+				<cfset statusResult = problem.update( statusID=status.ID )>
+
+				<cflog file="AddImage" type="info" text="Saved the status result">
 				
 				<!--- Check the response --->
-				<cfif result EQ true>
+				<cfif statusResult EQ true>
 					<cflog file="AddImage" type="info" text="Finished and returning to the user">	
 					<!--- Set the return --->
 					<cfset rtn.result = true>
