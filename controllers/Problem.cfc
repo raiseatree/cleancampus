@@ -124,6 +124,7 @@
 				<!--- Set the upload file location --->
 				<cfset dropLocationOriginal = ExpandPath('images/dropzone/temp')>
 				<cfset fileDropLocation = ExpandPath('images/dropzone')>
+				<cfset thumbDropLocation = ExpandPath('images/dropzone')>
 			
 				<!--- Try to upload the file --->
 				<cffile action="upload" 
@@ -138,6 +139,14 @@
 					source="#dropLocationOriginal#/#cffile.ServerFile#" 
 					destination="#fileDropLocation#/#cffile.ServerFile#" 
 					width="640" 
+					height="" 
+					overwrite="yes">
+					
+				<cfimage 
+					action="resize" 
+					source="#dropLocationOriginal#/#cffile.ServerFile#" 
+					destination="#thumbDropLocation#/#cffile.ServerFile#" 
+					width="150" 
 					height="" 
 					overwrite="yes">
 					
@@ -234,7 +243,7 @@
 					<cfset problems["timeAgo"] = timeAgoInWords(createdAt) & ' Ago'>
 					
 					<!--- Add in the full URL --->
-					<cfset problems["image"] = LoadSiteURL() & '/images/dropzone/' & image>
+					<cfset problems["image"] = LoadSiteURL() & '/images/dropzone/thumbs/' & image>
 				</cfloop>
 				
 				<cfset local.rtn.data = problems>
