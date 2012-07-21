@@ -149,11 +149,18 @@
 				<!--- Save the file name --->
 				<cfset params.image = cffile.ServerFile>
 				
-				<!--- Update the problem --->
-				<cfset result = problem.update( image=params.image, active=1 )>
-				
 				<!--- Hook in the email send profile --->
 				<cfset emailResult = problem.sendEmails()>
+				
+				<!--- Check the result --->
+				<cfif IsDefined("emailResult") AND emailResult.status EQ 'assigned'>
+					<cfset status = model("status").findOne(where="statusLabel='Assigned'", returnAs="query")>
+				<cfelse>
+					<cfset status = model("status").findOne(where="statusLabel='Unassigned'", returnAs="query")>
+				</cfif>
+				
+				<!--- Check the result and update the problem --->
+				<cfset result = problem.update( image=params.image, statusID=status.ID )>
 				
 				<!--- Check the response --->
 				<cfif result EQ true>
@@ -210,13 +217,22 @@
 		<cfif IsDefined("params.key")>
 		
 			<!--- Load all problems for a university --->
-			<cfset problems = model("problem").findAll(
+			<cfset problems = model("problem").findAll(select="typeLabel, effectLabel, reporterID, statusLabel, statusColour, description, image, latitude, longitude, createdAt", 
 					where="universityID=#params.key# AND (updatedAt>='#DateFormat( DateAdd( 'd', -30, now() ), 'yyyy-mm-dd')#' OR statusLabel <> 'Fixed')", 
-					include="status,problemtype", 
+					include="status,problemtype,problemeffect", 
 					order="createdat desc")>
 			
 			<cfif problems.RecordCount GT 0>
 				<cfset local.rtn.result = true>
+				
+				<!--- Add in an additional query --->
+				<cfset QueryAddColumn(problems, "timeAgo")>
+				
+				<!--- Loop through the query and calculate timeAgo --->
+				<cfloop query="problems">
+					<cfset problems["timeAgo"] = timeAgoInWords(createdAt) & ' Ago'>
+				</cfloop>
+				
 				<cfset local.rtn.data = problems>
 			<cfelse>
 				<cfset local.rtn.result = false>
