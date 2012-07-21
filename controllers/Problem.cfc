@@ -124,7 +124,7 @@
 				<!--- Set the upload file location --->
 				<cfset dropLocationOriginal = ExpandPath('images/dropzone/temp')>
 				<cfset fileDropLocation = ExpandPath('images/dropzone')>
-				<cfset thumbDropLocation = ExpandPath('images/dropzone')>
+				<cfset thumbDropLocation = ExpandPath('images/dropzone/thumbs')>
 			
 				<!--- Try to upload the file --->
 				<cffile action="upload" 
