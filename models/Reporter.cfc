@@ -22,6 +22,7 @@
 			<cfset rtn.reporterID = encrypt(check.id, GetReporterKey(), "CFMX_COMPAT", "Hex")>
 			<cfset rtn.message = "Reporter already in DB">
 		<cfelse>
+		
 			<!--- Add the new reporter into the system --->
 			<cfset result = model("reporter").create(params)>
 		
