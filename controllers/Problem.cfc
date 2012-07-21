@@ -162,7 +162,7 @@
 				<cfset emailResult = problem.sendEmails()>
 				
 				<!--- Check the result --->
-				<cfif IsDefined("emailResult") AND emailResult.status EQ 'assigned'>
+				<cfif IsDefined("emailResult.status") AND emailResult.status EQ 'assigned'>
 					<cfset status = model("status").findOne(where="statusLabel='Assigned'", returnAs="query")>
 				<cfelse>
 					<cfset status = model("status").findOne(where="statusLabel='Unassigned'", returnAs="query")>
