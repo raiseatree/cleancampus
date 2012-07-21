@@ -230,7 +230,11 @@
 				
 				<!--- Loop through the query and calculate timeAgo --->
 				<cfloop query="problems">
+					<!--- Add the TimeAgo Col --->
 					<cfset problems["timeAgo"] = timeAgoInWords(createdAt) & ' Ago'>
+					
+					<!--- Add in the full URL --->
+					<cfset problems["image"] = LoadSiteURL() & '/images/dropzone/' & image>
 				</cfloop>
 				
 				<cfset local.rtn.data = problems>

@@ -3,7 +3,12 @@ plugins/**/*
 
 # Any other folders
 log/
-WEB-INF/
+images/dropzone/*.jpg
+images/dropzone/*.jpeg
+images/dropzone/*.png
+images/dropzone/temp/*.jpg
+images/dropzone/temp/*.jpeg
+images/dropzone/temp/*.png
 
 # files directory where uploads go
 files

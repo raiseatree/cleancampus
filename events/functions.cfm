@@ -15,10 +15,6 @@
 	<cfreturn "My Clean Campus">
 </cffunction>
 
-<cffunction name="LoadSiteURL">
-	<cfreturn "http://www.mycleancampus.com">
-</cffunction>
-
 <cffunction name="LoadEmailFrom">
 	<cfreturn "hello@cleancampus.co.uk">
 </cffunction>
