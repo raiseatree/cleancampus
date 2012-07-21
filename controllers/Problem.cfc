@@ -158,6 +158,8 @@
 				<!--- Save the file name --->
 				<cfset params.image = cffile.ServerFile>
 				
+				<cfset result = problem.update( image=params.image )>
+				
 				<!--- Hook in the email send profile --->
 				<cfset emailResult = problem.sendEmails()>
 				
@@ -169,7 +171,7 @@
 				</cfif>
 				
 				<!--- Check the result and update the problem --->
-				<cfset result = problem.update( image=params.image, statusID=status.ID )>
+				<cfset result = problem.update( statusID=status.ID )>
 				
 				<!--- Check the response --->
 				<cfif result EQ true>
