@@ -23,3 +23,4 @@ db/sql
 *.metadata
 mxunit
 *.log
+*.project
