@@ -115,50 +115,15 @@ $(function() {
 			
 			<cfif data.problems.RecordCount GT 0>
 				<div id="tab1" class="tabContent<cfif data.redProblems.RecordCount EQ 0> hidden</cfif>">
-					<cfif data.redProblems.RecordCount GT 0>
-						<cfloop query="data.redProblems">
-							<div class="overflow">
-								<h2 class="itemTitle"><a href="##" class="tag red">#typeLabel#</a>#truncate(description)# <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-								<p><cfif IsDefined("image") AND image GT ''><a href="/images/dropzone/#image#" class="lightbox">#imageTag(source='dropzone/thumbs/#image#', class="dashImage")#</a><cfelse>#imageTag(source='no-image.png', class="dashImage")#</cfif> #description#</p>
-								<p>#imageTag('map-pin.png')#</p>
-							</div>
-						</cfloop>
-					<cfelse>
-						<p>Woo hoo! All problems have been assigned right now.</p>
-					</cfif>
+					#showProblems(data.redProblems, 'red')#
 				</div>
 				
 				<div id="tab2" class="tabContent <cfif data.redProblems.RecordCount EQ 0 AND data.amberProblems.RecordCount GT 0> <cfelse>hidden</cfif>">
-					<cfif data.amberProblems.RecordCount GT 0>
-						<cfloop query="data.amberProblems">
-							<div class="overflow">
-								<h2 class="itemTitle"><a href="##" class="tag amber">#typeLabel#</a>#truncate(description)# <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-								<p><cfif IsDefined("image") AND image GT ''><a href="/images/dropzone/#image#" class="lightbox">#imageTag(source='dropzone/thumbs/#image#', class="dashImage")#</a><cfelse>#imageTag(source='no-image.png', class="dashImage")#</cfif> #description#</p>
-								<p class="itemMap">
-									<span>Click map to enlarge</span>
-									<a href="http://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=#latitude#,#longitude#&zoom=17&&size=320x240&scale=2&markers=color:red%7C#latitude#,#longitude#&sensor=false" class="lightbox">
-										<img src="http://maps.googleapis.com/maps/api/staticmap?center=#latitude#,#longitude#&zoom=15&&size=490x100&markers=color:red%7C#latitude#,#longitude#&sensor=false">
-									</a>
-								</p>
-							</div>
-						</cfloop>
-					<cfelse>
-						<p>No problems in this category right now.</p>
-					</cfif>
+					#showProblems(data.amberProblems, 'amber')#
 				</div>
 				
 				<div id="tab3" class="tabContent hidden">
-					<cfif data.greenProblems.RecordCount GT 0>
-						<cfloop query="data.greenProblems">
-							<div class="overflow">
-								<h2 class="itemTitle"><a href="##" class="tag green">#typeLabel#</a>#truncate(description)# <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-								<p><cfif IsDefined("image") AND image GT ''><a href="/images/dropzone/#image#" class="lightbox">#imageTag(source='dropzone/thumbs/#image#', class="dashImage")#</a><cfelse>#imageTag(source='no-image.png', class="dashImage")#</cfif> #description#</p>
-								<p>#imageTag('map-pin.png')#</p>
-							</div>
-						</cfloop>
-					<cfelse>
-						<p>No problems in this category right now.</p>
-					</cfif>
+					#showProblems(data.greenProblems, 'green')#
 				</div>
 			<cfelse>
 				<div class="tabContent">
