@@ -129,9 +129,6 @@
 						
 					</cflogin>
 					
-					<!--- Re-direct the user --->
-					<cfset redirectTo(controller="main", action="home")>
-					
 				<cfelse>
 					<!--- Flash and re-render --->
 					<cfset flashInsert(error="Sorry your password was incorrect, please try again")>

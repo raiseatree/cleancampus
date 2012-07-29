@@ -46,9 +46,36 @@
 		<!--- Check if user exists in session and redirect to login if not --->
 		<cfif Not(IsUserLoggedIn()) OR Not(IsDefined("SESSION.userID"))>
 				
+			<!--- Check if we have a cookie --->
 			<cfif IsDefined("cookie.userID")>
-				<cfdump var="We have found a cookie"><cfabort>
+				
+				<!--- Decrypt the userID to load from the DB --->
+				<cfset user = model("user").findOneByID(decrypt(cookie.userID, GetEncryptKey(), "CFMX_COMPAT", "Hex"))>
+				
+				<!--- Check we found a user (ie user could have been deleted since last login) --->
+				<cfif IsObject(user)>
+				
+					<!--- Login by cookie --->
+					<cfset SESSION.userID = cookie.userID>
+					
+					<!--- Login the user with CF --->
+					<cflogin idletimeout="3600">
+						
+						<cfloginuser 
+							name="#user.firstname# #user.surname#" 
+							password="something" 
+							roles="#user.roles#" />
+						
+					</cflogin>
+				
+				<cfelse>
+					<!--- TODO Chnage this to use the home route --->
+					<cfset flashInsert(error="You must login before accessing that page")>
+					<cfset redirectTo(controller="main", action="register")>
+				</cfif>
+				
 			<cfelse>
+				<!--- TODO Chnage this to use the home route --->
 				<cfset flashInsert(error="You must login before accessing that page")>
 				<cfset redirectTo(controller="main", action="register")>
 			</cfif>
