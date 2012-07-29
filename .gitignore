@@ -1,6 +1,9 @@
 # unpacked plugin folders
 plugins/**/*
 
+#WEB-INF classes folder
+WEB-INF/railo/cfclasses/*
+
 # Any other folders
 log/
 images/dropzone/*.jpg
