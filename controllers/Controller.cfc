@@ -84,4 +84,11 @@
 		
 	</cffunction>
 
+	<cffunction name="decryptUser" access="private" hint="I decrypt the user ID we use throughout the site">
+		<cfargument name="userID" type="any" required="yes">
+		
+		<cfreturn decrypt(ARGUMENTS.userID, GetEncryptKey(), "CFMX_COMPAT", "Hex")>
+	
+	</cffunction>
+
 </cfcomponent>

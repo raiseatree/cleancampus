@@ -3,13 +3,17 @@
 @import 'functions.less';
 
 .inactiveButton,
-.activeButton {
+.activeButton,  
+.redButton,  
+.amberButton, 
+ {
 	.fl;
 	border: solid 1px @green;
 	.border-radius(4px);
 	.linear-gradient(top, @white, @beige);
 	padding: 10px;
 	margin-top: 10px;
+	margin-right: 10px;
 	min-width: 80px;
 	.textCentre;
 	color: @green;
@@ -40,6 +44,31 @@
 		color: @white;	
 	}
 }
-#register {
-	margin-left: 20px;
+
+.redButton {
+	border: solid 1px @red;
+	color: @white;
+	.linear-gradient(top, @paleRed, @red);
+	
+	&:hover {
+		color: @white;
+	}
+	
+	&:active {
+		.linear-gradient(top, @red, @paleRed);
+	}
+}
+
+.amberButton {
+	border: solid 1px @amber;
+	color: @white;
+	.linear-gradient(top, @paleAmber, @amber);
+	
+	&:hover {
+		color: @white;
+	}
+	
+	&:active {
+		.linear-gradient(top, @amber, @paleAmber);
+	}
 }

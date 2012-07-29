@@ -957,7 +957,9 @@ body:after {
   display: none;
 }
 .inactiveButton,
-.activeButton {
+.activeButton,
+.redButton,
+.amberButton {
   float: left;
   float: left;
   border: solid 1px #83c500;
@@ -981,21 +983,28 @@ body:after {
   background-image: linear-gradient(top, #ffffff, #edf6d9);
   padding: 10px;
   margin-top: 10px;
+  margin-right: 10px;
   min-width: 80px;
   text-align: center;
   text-align: center;
   color: #83c500;
 }
 .inactiveButton:after,
-.activeButton:after {
+.activeButton:after,
+.redButton:after,
+.amberButton:after {
   content: ' >';
 }
 .inactiveButton:hover,
-.activeButton:hover {
+.activeButton:hover,
+.redButton:hover,
+.amberButton:hover {
   color: #83c500;
 }
 .inactiveButton:active,
-.activeButton:active {
+.activeButton:active,
+.redButton:active,
+.amberButton:active {
   background-color: #edf6d9;
   background-image: -webkit-linear-gradient(top, #edf6d9, #ffffff);
   background-image: -moz-linear-gradient(top, #edf6d9, #ffffff);
@@ -1042,8 +1051,71 @@ body:after {
   background-image: linear-gradient(top, #336600, #70ae00);
   color: #ffffff;
 }
-#register {
-  margin-left: 20px;
+.redButton {
+  border: solid 1px #e31b23;
+  color: #ffffff;
+  background-color: #f18d9a;
+  background-image: -webkit-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -moz-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -o-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -ms-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: linear-gradient(top, #f18d9a, #e31b23);
+  background-color: #f18d9a;
+  background-image: -webkit-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -moz-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -o-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: -ms-linear-gradient(top, #f18d9a, #e31b23);
+  background-image: linear-gradient(top, #f18d9a, #e31b23);
+}
+.redButton:hover {
+  color: #ffffff;
+}
+.redButton:active {
+  background-color: #e31b23;
+  background-image: -webkit-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: -moz-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: -o-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: -ms-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: linear-gradient(top, #e31b23, #f18d9a);
+  background-color: #e31b23;
+  background-image: -webkit-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: -moz-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: -o-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: -ms-linear-gradient(top, #e31b23, #f18d9a);
+  background-image: linear-gradient(top, #e31b23, #f18d9a);
+}
+.amberButton {
+  border: solid 1px #ff9900;
+  color: #ffffff;
+  background-color: #ffcc7f;
+  background-image: -webkit-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: -moz-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: -o-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: -ms-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: linear-gradient(top, #ffcc7f, #ff9900);
+  background-color: #ffcc7f;
+  background-image: -webkit-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: -moz-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: -o-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: -ms-linear-gradient(top, #ffcc7f, #ff9900);
+  background-image: linear-gradient(top, #ffcc7f, #ff9900);
+}
+.amberButton:hover {
+  color: #ffffff;
+}
+.amberButton:active {
+  background-color: #ff9900;
+  background-image: -webkit-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: -moz-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: -o-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: -ms-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: linear-gradient(top, #ff9900, #ffcc7f);
+  background-color: #ff9900;
+  background-image: -webkit-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: -moz-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: -o-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: -ms-linear-gradient(top, #ff9900, #ffcc7f);
+  background-image: linear-gradient(top, #ff9900, #ffcc7f);
 }
 .errorMessages {
   color: #900;

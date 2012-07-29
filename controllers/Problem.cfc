@@ -213,6 +213,55 @@
 	
 	</cffunction>
 
+	<cffunction name="fix">
+	
+		<cfif IsDefined("params.ID")>
+		
+			<!--- Update the status of this problem --->
+			<cfset problem = model("problem").findOneByID(params.ID)>
+			
+			<!--- Load the statusID for being 'Fixed' --->
+			<cfset status = model("status").findOne(where="statusLabel='Fixed'", returnAs="query")>
+			
+			<!--- Check we found one --->
+			<cfif IsObject(problem)>
+				<cfset result = problem.update(statusID=status.ID)>
+				
+				<!--- Check the result was positive --->
+				<cfif result EQ true>
+					<cfset flashInsert(success="Problem Fixed Successfully! Nice One!")>
+					<cfset redirectTo(route="home")>
+					<!--- TODO Add in hook here for alerting the user that their problem has been fixed --->
+				<cfelse>
+					<cfset flashInsert(error="Sorry - an error occurred whilst updating the status of the problem")>
+					<cfset redirectTo(back=true)>
+				</cfif>
+			<cfelse>
+				<cfset flashInsert(error="Sorry - could not find that problem")>
+				<cfset redirectTo(back=true)>
+			</cfif>
+			
+		</cfif>
+	
+	</cffunction>
+
+	<cffunction name="investigate">
+	
+		<cfif IsDefined("params.ID")>
+		
+			<!--- Load the problem --->
+			<cfset data.problem = model("problem").findAll(where="ID=#params.ID#", include="problemtype,problemeffect,status", returnAs="query")>
+			
+			<!--- Create a new comment instance --->
+			<cfset data.comment = model("problemcomment").new(problemID=data.problem.ID, userID=SESSION.userID)>
+	
+		<cfelse>
+			<cfset flashInsert(error="Sorry - cannot access method in that way")>
+			<cfset redirectTo(back=true)>
+		</cfif>
+	
+	</cffunction>
+
 	<cffunction name="new">
 	
 		<!--- Load a list of universities --->
@@ -226,6 +275,38 @@
 	
 		<cfdump var="#rtn#"><cfabort>
 
+	</cffunction>
+
+	<cffunction name="reject">
+	
+		<cfif IsDefined("params.ID")>
+		
+			<!--- Update the status of this problem --->
+			<cfset problem = model("problem").findOneByID(params.ID)>
+			
+			<!--- Load the statusID for being 'Fixed' --->
+			<cfset status = model("status").findOne(where="statusLabel='Fixed'", returnAs="query")>
+			
+			<!--- Check we found one --->
+			<cfif IsObject(problem)>
+				<cfset result = problem.update(statusID=status.ID)>
+				
+				<!--- Check the result was positive --->
+				<cfif result EQ true>
+					<cfset flashInsert(success="Thanks for rejecting this problem")>
+					<cfset redirectTo(route="home")>
+					<!--- TODO Add in hook here for alerting the user that their problem has been rejected --->
+				<cfelse>
+					<cfset flashInsert(error="Sorry - an error occurred whilst updating the status of the problem")>
+					<cfset redirectTo(back=true)>
+				</cfif>
+			<cfelse>
+				<cfset flashInsert(error="Sorry - could not find that problem")>
+				<cfset redirectTo(back=true)>
+			</cfif>
+			
+		</cfif>
+	
 	</cffunction>
 
 	<cffunction name="view">
@@ -261,7 +342,7 @@
 				<cfset local.rtn.result = false>
 				<cfset local.rtn.message = 'No problems found for this university'>
 			</cfif>
-					
+			
 		<cfelse>
 			<cfset local.rtn.result = false>
 			<cfset local.rtn.message = 'Please provide a university ID'>

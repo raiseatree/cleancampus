@@ -21,11 +21,6 @@
 					<p>#checkboxTag(name="cookie", label="Remember Me", labelPlacement="after", class="checkbox")#</p>
 					<p>#submitTag(name="submit", class="activeButton loginButton", value="Sign In")#</p>
 				#endFormTag()#
-				<!---#startFormTag(controller="main", action="registerInterest")#
-					#errorMessagesFor("data.interest")#
-					<p>#textField(objectName="data.interest", property="email", label="", class="textfield", placeholder="Email Address")#</p>
-					<p>#submitTag(name="submit", class="activeButton loginButton", value="Register Interest")#</p>
-				#endFormTag()#--->
 			</div>
 		</div>
 	</div>

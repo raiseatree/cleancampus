@@ -115,15 +115,15 @@ $(function() {
 			
 			<cfif data.problems.RecordCount GT 0>
 				<div id="tab1" class="tabContent<cfif data.redProblems.RecordCount EQ 0> hidden</cfif>">
-					#showProblems(data.redProblems, 'red')#
+					#showProblems(data.redProblems, 'red', true)#
 				</div>
 				
 				<div id="tab2" class="tabContent <cfif data.redProblems.RecordCount EQ 0 AND data.amberProblems.RecordCount GT 0> <cfelse>hidden</cfif>">
-					#showProblems(data.amberProblems, 'amber')#
+					#showProblems(data.amberProblems, 'amber', true)#
 				</div>
 				
 				<div id="tab3" class="tabContent hidden">
-					#showProblems(data.greenProblems, 'green')#
+					#showProblems(data.greenProblems, 'green', true)#
 				</div>
 			<cfelse>
 				<div class="tabContent">
