@@ -10,10 +10,11 @@
 	<cffunction name="index">
 	
 		<!--- Load this user --->
-		<cfset data.thisUser = model("user").findOneByID( decryptUserID() )>
+		<cfset data.editUser = model("user").findOneByID( decryptUserID() )>
+		<cfset data.editCategories = false>
 		
 		<!--- Load all users in this university --->
-		<cfset data.uniUsers = model("user").findAllByuniversityID( data.thisUser.universityID )>
+		<cfset data.uniUsers = model("user").findAllByuniversityID( data.editUser.universityID )>
 		
 		<!--- Loop over users to add their categories --->
 		<cfset QueryAddColumn( data.uniUsers, 'categories' )>
@@ -23,7 +24,7 @@
 		</cfloop>
 		
 		<!--- Create a new user instance --->
-		<cfset data.user = model("user").new(universityID=data.thisUser.universityID)>
+		<cfset data.newUser = model("user").new(universityID=data.editUser.universityID)>
 		
 		<!--- Now load a list of categories we can assign to this user --->
 		<cfset data.categories = model("problemtype").findAll(order="typeLabel ASC")>

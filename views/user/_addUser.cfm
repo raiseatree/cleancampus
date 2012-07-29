@@ -2,14 +2,14 @@
 <cfoutput>
 
 	#startFormTag(controller="user", action="add")#
-		#errorMessagesFor("data.user")#
+		#errorMessagesFor("data.newUser")#
 		
 		<fieldset>
 			<legend>Personal Details</legend>
-			<p>#textField(objectName="data.user", property="firstname", label="<span>First Name<br/></span>", labelPlacement="before", class="textfield")#</p>
-			<p class="cb">#textField(objectName="data.user", property="surname", label="<span>Surname<br/></span>", labelPlacement="before", class="textfield")#</p>
-			<p class="cb">#textField(objectName="data.user", property="email", label="<span>Email<br/></span>", labelPlacement="before", class="textfield")#</p>
-			<p class="cb">#passwordField(objectName="data.user", property="password", label="<span>Password<br/></span>", labelPlacement="before", class="textfield")#</p>
+			<p>#textField(objectName="data.newUser", property="firstname", label="<span>First Name<br/></span>", labelPlacement="before", class="textfield")#</p>
+			<p class="cb">#textField(objectName="data.newUser", property="surname", label="<span>Surname<br/></span>", labelPlacement="before", class="textfield")#</p>
+			<p class="cb">#textField(objectName="data.newUser", property="email", label="<span>Email<br/></span>", labelPlacement="before", class="textfield")#</p>
+			<p class="cb">#passwordField(objectName="data.newUser", property="password", label="<span>Password<br/></span>", labelPlacement="before", class="textfield")#</p>
 		</fieldset>
 		
 		<fieldset>
@@ -22,8 +22,8 @@
 		</fieldset>		
 		
 		<p class="overflow">
-			#hiddenField(objectName="data.user", property="ID")#
-			#hiddenField(objectName="data.user", property="universityID")#
+			#hiddenField(objectName="data.newUser", property="ID")#
+			#hiddenField(objectName="data.newUser", property="universityID")#
 			#submitTag(name="submit", class="activeButton", value="Add User")#
 		</p>
 	#endFormTag()#

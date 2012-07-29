@@ -17,9 +17,10 @@
 			<li class="last"><a href="##tab4" class="tab">Edit Users</a></li>
 		</ul>
 		
-		<div id="tab1" class="tabContent">
+		<div id="tab1" class="tabContent overflow">
 			<h2>Personal Settings</h2>
-			<p>Change password etc. goes here...</p>
+			<p>Use the form below to update your account details. Please be sure to use a secure password and one that you don't already use for your email account.</p>
+			#includePartial('/user/editUser')#
 		</div>
 	
 		<cfif IsUserInRole('uniadmin')>

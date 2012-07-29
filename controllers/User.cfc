@@ -1,5 +1,22 @@
 <cfcomponent extends="Controller" output="false">
 
+	<cffunction name="encryptPassword" access="private">
+		<cfargument name="password" type="string" required="yes">
+		
+		<!--- Create the return structure --->
+		<cfset local.rtn = StructNew()>
+		
+		<!--- First create a salt and hash the password --->
+		<cfset theSalt = CreateUUID()>
+		<cfset local.rtn.password = Hash(ARGUMENTS.password & theSalt, 'SHA-512')>
+		
+		<!--- Next encrypt the salt --->
+		<cfset local.rtn.passwordsalt = encrypt(theSalt,getEncryptKey(),'CFMX_COMPAT','hex')>
+		
+		<cfreturn local.rtn>
+	
+	</cffunction>
+
 	<cffunction name="init">
 		
 		<cfset super.init()>
@@ -10,18 +27,14 @@
 	
 		<cfif IsPost()>
 			
-			<!--- First create a salt and hash the password --->
-			<cfset theSalt = CreateUUID()>
-			<cfset params.user.password = Hash(params.user.password & theSalt, 'SHA-512')>
+			<!--- Encrypt the password --->
+			<cfset StructAppend( params.newUser, encryptPassword(params.newUser.password) )>
 			
-			<!--- Next encrypt the salt --->
-			<cfset params.user.passwordsalt = encrypt(theSalt,getEncryptKey(),'CFMX_COMPAT','hex')>
-		
 			<!--- Set the default roles --->
-			<cfset params.user.roles = 'user'>
+			<cfset params.newUser.roles = 'user'>
 		
 			<!--- Create the user --->
-			<cfset result = model("user").create(params.user)>
+			<cfset result = model("user").create(params.newUser)>
 		
 			<cfif result.hasErrors()>
 				<cfdump var="#result.allErrors()#"><cfabort>
@@ -68,6 +81,7 @@
 			
 				<!--- Load the user to edit (input logged in user's university id to show they are affiliated) --->
 				<cfset data.editUser = model("user").findOne(where="ID=#params.ID# AND universityID=#user.universityID#")>
+				<cfset data.editCategories = true>
 				
 				<!--- Check we found a user --->
 				<cfif IsObject(data.editUser)>
@@ -103,6 +117,7 @@
 			<cfset user = model("user").findOneByEmail(email=params.user.email)>
 			
 			<cfif IsObject(user)>
+				
 				<!--- Email address found, check the password matches --->
 				<cfset theSalt = decrypt(user.passwordSalt,getEncryptKey(),'CFMX_COMPAT','hex')>
 				<cfset hashedPwd = hash(params.user.password & theSalt, 'SHA-512')>
@@ -128,6 +143,9 @@
 							roles="#user.roles#" />
 						
 					</cflogin>
+					
+					<!--- Redirect the user to home --->
+					<cfset redirectTo(route="home")>
 					
 				<cfelse>
 					<!--- Flash and re-render --->
@@ -176,6 +194,20 @@
 			<!--- Load the user --->
 			<cfset loc.user = model("user").findOneByID(params.editUser.ID)>
 			
+			<!--- Check if we need to update the user's password --->
+			<cfif params.editUser.newPassword GT '' AND params.editUser.newPassword2 GT ''>
+			
+				<!--- Now check that the passwords match --->
+				<cfif params.editUser.newPassword EQ params.editUser.newPassword2>
+					<!--- Salt and store the password & salt --->
+					<cfset StructAppend( params.editUser, encryptPassword(params.editUser.newPassword2) )>
+				<cfelse>
+					<!--- Redirect back, passwords don't match --->
+					<cfset flashInsert(error="Sorry - your two passwords don't match, please try again")>
+					<cfset redirectTo(back=true)>
+				</cfif>
+			</cfif>
+			
 			<!--- Update the user --->
 			<cfset update = loc.user.update( params.editUser )>
 			
@@ -186,7 +218,7 @@
 			</cfif>
 			
 			<!--- Delete all the categories this user currently manages --->
-			<cfset loc.delete = loc.user.deleteAllUserProblemTypes()>
+			<cfset loc.delete = loc.user.deleteUserProblemTypes()>
 				
 			<!--- Check to see if we need to add any new categories --->
 			<cfif IsDefined("params.problemtypes")>
@@ -202,8 +234,6 @@
 				</cfloop>
 				
 			</cfif>
-			
-			
 			
 			<cfset redirectTo(controller="account", action="index")>
 		
