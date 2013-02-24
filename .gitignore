@@ -12,6 +12,8 @@ log/
 # uploaded image files
 images/dropzone/*.jpg
 images/dropzone/*.jpeg
+images/dropzone/thumbs/*.jpg
+images/dropzone/thumbs/*.jpeg
 
 # files directory where uploads go
 files/
