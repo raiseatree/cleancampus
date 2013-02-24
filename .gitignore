@@ -3,14 +3,21 @@ plugins/**/*
 
 #WEB-INF classes folder
 WEB-INF/railo/cfclasses/*
+WEB-INF/railo/lib-hash
+WEB-INF/railo/railo-web.xml.cfm
 
-# Any other folders
+# Log files
 log/
+
+# uploaded image files
 images/dropzone/*.jpg
 images/dropzone/*.jpeg
 
 # files directory where uploads go
-files
+files/
+
+# tests directory
+tests/
 
 # DBMigrate plugin: generated SQL
 db/sql
