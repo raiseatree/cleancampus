@@ -73,7 +73,7 @@ Path placeholders:
 	<scope client-directory="{railo-web}/client-scope/" client-directory-max-size="100mb" requesttimeout-log="{railo-web}/logs/requesttimeout.log"/>
 		
 	<mail log="{railo-web}/logs/mail.log">
-	</mail>
+	<server password="encrypted:d765a37813b3e18dc291a2c66e81078184fc5be5383c2264d46a2796e1fa8dc4ab22fc906a039c72a60f5d0ca901b9a284adde05f0c76158663c2950fa1e551acac09c239b853f1043340ebf07c393666dc97962bce0ecdafee38ae2e89dc6dbd0d4fb42d1d41e07" port="587" smtp="email-smtp.us-east-1.amazonaws.com" ssl="false" tls="true" username="AKIAIK2UNWND2ZSJO6AA"/></mail>
 	
 	<!--
 	define path to search directory
