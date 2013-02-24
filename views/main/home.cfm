@@ -65,7 +65,6 @@
 	</div>
 </section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://maps.google.com/maps?file=api&v=2&sensor=false&key=AIzaSyC3vJSkfPRqg6tdLWNshVzshTrL9L1abqU"></script>
 <script type="text/javascript" charset="utf-8" src="http://mapstraction.googlecode.com/svn/trunk/source/mxn.js?(google)"></script>
 <script type="text/javascript">

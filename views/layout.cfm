@@ -3,7 +3,9 @@
 <html>
 	<head>
 		<title>#pageTitle#</title>
-		#javaScriptIncludeTag(sources="jquery-1.6.2.min,jquery-ui-1.8.18.min,jquery.globalfunctions,jquery.livequery,jquery.lightbox-0.5.min")#
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+		#javaScriptIncludeTag(sources="jquery.globalfunctions,jquery.livequery,jquery.lightbox-0.5.min")#
 		<!--[if lt IE 9]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
