@@ -19,7 +19,7 @@
 	<cfreturn "hello@cleancampus.co.uk">
 </cffunction>
 
-<cffunction name="LoadEmailServer">
+<!---<cffunction name="LoadEmailServer">
 	<cfreturn "smtp.gmail.com">
 </cffunction>
 
@@ -33,7 +33,7 @@
 
 <cffunction name="LoadEmailPassword">
 	<cfreturn "manutd88">
-</cffunction>
+</cffunction>--->
 
 <cffunction name="LoadSiteURL">
 	<cfreturn "http://#CGI.SERVER_NAME#:#CGI.SERVER_PORT#">

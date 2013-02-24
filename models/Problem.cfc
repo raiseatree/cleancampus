@@ -26,7 +26,7 @@
 		<!--- Loop through the users and send them each an email --->
 		<cfloop query="users">
 		
-			<cfmail to="#users.email#" from="#LoadEmailFrom()#" server="#LoadEmailServer()#" port="#LoadEmailPort()#" username="#LoadEmailUsername()#" password="#LoadEmailPassword()#" usessl="true" subject="#LoadSiteTitle()# - New Problem" type="html">
+			<cfmail to="#users.email#" from="#LoadEmailFrom()#" subject="#LoadSiteTitle()# - New Problem" type="html">
 				<p>A new problem has been reported on your campus and you have been assigned!</p>
 				<p><img src="#LoadSiteURL()#/images/dropzone/#this.image#"></p>
 				<p>Please log in to #LoadSiteTitle()# to view full details of the problem and to action it.</p>

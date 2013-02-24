@@ -23,7 +23,7 @@
 				<div class="overflow problem">
 					<h2 class="itemTitle overflow"><a href="##" class="tag #ARGUMENTS.colour#">#typeLabel#</a> <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
 					<p>
-						<cfif IsDefined("image") AND image GT ''>
+						<cfif IsDefined("image") AND image GT '' AND FileExists(ExpandPath('images/dropzone/thumbs/#image#')) EQ true>
 							<a href="/images/dropzone/#image#" class="lightbox">
 								#imageTag(source='dropzone/thumbs/#image#', class="dashImage")#
 							</a>

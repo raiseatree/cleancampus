@@ -19,8 +19,7 @@
 		<cfset rtn = StructNew()>
 		
 		<!--- TODO Refactor this method so we take in all the data and add it to a queue that then gets batched so we can return the response to the client asap --->
-		
-		<!---<cftry>--->
+		<cftry>
 			
 			<cflog file="AddProblem" type="info" text="Reached method call and Decrypting the reporterID">
 			
@@ -78,12 +77,9 @@
 
 			</cfif>
 
-			<!---<cfcatch type="any">
-					
-				<cfmail to="andy@touchtapapps.com" from="andy@raiseatree.co.uk" server="smtp.gmail.com" port="465" username="andy@raiseatree.co.uk" password="agam3mn0N" usessl="true" subject="Dump" type="html">
-					<cfdump var="#params#" label="params">
-					<cfdump var="#cfcatch#" label="cfcatch">
-				</cfmail>
+			<cfcatch type="any">
+				
+				<cfset sendEmail(to='andy@cleancampus.co.uk', subject='Error adding problem', template='error', iParams=params, iCfcatch=cfcatch)>	
 				
 				<cfset rtn.result = false>
 				
@@ -96,7 +92,7 @@
 				<cfset renderWith(rtn)>
 			</cfcatch>
 			
-		</cftry>--->
+		</cftry>
 		
 		<!--- Render the message back to the user --->
 		<cfset renderWith(rtn)>
