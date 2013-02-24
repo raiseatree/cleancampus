@@ -26,13 +26,13 @@ $(document).ready(function() {
 	/*
 	 * Load the problem in the problem side pane
 	 */
-	$('.jq-loadproblem').livequery('click', function(event) {
+	/*$('.jq-loadproblem').livequery('click', function(event) {
 		alert('Hello');
 	});
 	
 	$('.jq-loadproblem').click(function() {
 		alert('Hello');
-	});
+	});*/
 	
 
 	$('#map').click(function() {
@@ -42,7 +42,7 @@ $(document).ready(function() {
 	/*
 	 * TEMP - Assign the load issue details to a click on the map just to demo
 	 */
-	$('#map').click(function() {
+	/*$('#map').click(function() {
 		$('#mainHolder').animate({"width": "+=217px"}, "fast", function(){
 			$('#sidePanelHolder').show("slide", { direction: "left" }, "fast");	
 		});
@@ -52,7 +52,7 @@ $(document).ready(function() {
 		$('#mainHolder').animate({"width": "-=217px"}, "fast", function(){
 			$('#sidePanelHolder').hide("slide", { direction: "right" }, "fast");	
 		});
-	});
+	});*/
 	
 	/*
 	 * Tabbed navigation goes here
