@@ -1,18 +1,6 @@
 <cfparam name="data">
 <cfoutput>
 	
-<!---<script src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyD51ESXcA_5O_tvWhezknGz9OcF-aAf7VQ"></script>
-<script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.0&appid=MapstractionDemo"></script>
-<script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6"></script>
-<script src="http://openlayers.org/api/OpenLayers.js"></script>
-<script type="text/javascript" charset="utf-8" src="http://mapstraction.googlecode.com/svn/trunk/source/mxn.js?(google)"></script>--->
-	
-<script type="text/javascript">
-$(function() {
-	$('a.lightbox').lightBox(); // Select all links with lightbox class
-});
-</script>
-	
 <section id="main">
 				
 	#loadLoggedInHeader()#
@@ -21,8 +9,8 @@ $(function() {
 	
 	<header class="postRibbon">
 		<ul class="nav-mapDash">
-			<li><a href="##" id="jq-map" class="jq-mapdashlink"</a>Map View</a></li>
-			<li class="selected"><a href="##" id="jq-dashboard" class="jq-mapdashlink">Dashboard</a></li>
+			<li class="selected"><a href="##" id="jq-map" class="jq-mapdashlink"</a>Map View</a></li>
+			<li><a href="##" id="jq-dashboard" class="jq-mapdashlink">Dashboard</a></li>
 		</ul>
 		
 		<div class="pins">
@@ -34,79 +22,9 @@ $(function() {
 		
 	<section id="ccHolder" class="cb">
 	   
-		<!---><script type="text/javascript">
-			var mapstraction;
-			function initialize() {
-			    mapstraction = new mxn.Mapstraction('map','google');
-			    mapstraction.setCenterAndZoom(new mxn.LatLonPoint( #data.user.centreLat#, #data.user.centreLon# ), 14);
-			    mapstraction.addLargeControls();
-			    
-			    // Loop thru the markers we want to add 
-				<cfif data.problems.RecordCount GT 0>
-					<cfloop query="data.problems">
-					    advancedMarker( #data.problems.id#, #data.problems.latitude#, #data.problems.longitude#, '#data.problems.statusColour#', '#data.problems.typelabel#' );
-					</cfloop>
-				</cfif>
-			}
-			
-			function advancedMarker( v_id, v_lat, v_lon, v_icon, v_typelabel ) {
-			    mapstraction.addMarkerWithData(new mxn.Marker( new mxn.LatLonPoint( v_lat, v_lon )),{
-			        icon : '/cleancampus/images/' + v_icon + '-pin.png',
-			        iconSize : [29,30],
-			        infoBubble : '<a href=## class=jq-loadproblem><strong>' + v_typelabel + '</strong></a><br/><p><a href="##" class="jq-loadproblem" id="problem-' + v_id + ' ">View Details</a></p>'
-			    });
-			}
-			
-			function alertMe() {
-				alert('You triggered the function');
-			}
-		</script>
+		<div id="map" class="cb jq-feature"></div>
 	   
-	    <div id="map" class="cb jq-feature hidden"></div>--->
-		
-		<!--- Open Street Map library
-	    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
-		<script>
-			map = new OpenLayers.Map("map");
-			map.addLayer(new OpenLayers.Layer.OSM());
-			var zoom=14;
-			
-			// Define the map centre
-			var mapCentre = new OpenLayers.LonLat( #data.user.centreLon#, #data.user.centreLat# )
-			      .transform(
-			        new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-			        map.getProjectionObject() // to Spherical Mercator Projection
-			      );
-			
-			map.setCenter (mapCentre, zoom);
-			
-			var markers = new OpenLayers.Layer.Markers( "Markers" );
-			map.addLayer(markers);
-			
-			// Marker Variables 
-			var size = new OpenLayers.Size(29, 30);
-			var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
-			var greenIcon = new OpenLayers.Icon("/cleancampus/images/green-pin.png", size, offset);
-			var amberIcon = new OpenLayers.Icon("/cleancampus/images/amber-pin.png", size, offset);
-			var redIcon = new OpenLayers.Icon("/cleancampus/images/red-pin.png", size, offset);
-			
-			// Loop thru the markers we want to add 
-			<cfif data.problems.RecordCount GT 0>
-				<cfloop query="data.problems">
-					// Define the marker position
-					var marker#data.problems.CurrentRow# = new OpenLayers.LonLat( #data.problems.longitude#, #data.problems.latitude# )
-					      .transform(
-					        new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-					        map.getProjectionObject() // to Spherical Mercator Projection
-					      );
-					 
-					// Add the marker to the map     
-					markers.addMarker(new OpenLayers.Marker(marker#data.problems.CurrentRow#, #data.problems.statusColour#Icon.clone()));
-				</cfloop>
-			</cfif>
-		</script>--->
-		
-		<div id="dashboard" class="cb jq-feature">
+		<div id="dashboard" class="cb jq-feature hidden">
 			<ul id="tabNav">
 				<li<cfif data.redProblems.RecordCount GT 0> class="active"</cfif>><a href="##tab1" class="tab">Unassigned Problems (#data.redProblems.RecordCount#)</a></li>
 				<li<cfif data.redProblems.RecordCount EQ 0 AND data.amberProblems.RecordCount GT 0> class="active"</cfif>><a href="##tab2" class="tab">Assigned Problems (#data.amberProblems.RecordCount#)</a></li>
@@ -146,5 +64,51 @@ $(function() {
 		<p>Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum.</p>
 	</div>
 </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://maps.google.com/maps?file=api&v=2&sensor=false&key=AIzaSyC3vJSkfPRqg6tdLWNshVzshTrL9L1abqU"></script>
+<script type="text/javascript" charset="utf-8" src="http://mapstraction.googlecode.com/svn/trunk/source/mxn.js?(google)"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		// Initialise the map
+		init();
+		
+		// Initialise the lightbox 
+		$('a.lightbox').lightBox(); // Select all links with lightbox class
+		
+	});
+   
+	function init() {
+		
+		// initialise the map with your choice of API
+		var mapstraction = new mxn.Mapstraction('map','google');
+		
+		// Loop thru the markers we want to add 
+		<cfif data.problems.RecordCount GT 0>
+			<cfloop query="data.problems">
+			    <!---advancedMarker( #data.problems.id#, #data.problems.latitude#, #data.problems.longitude#, '#data.problems.statusColour#', '#data.problems.typelabel#' );--->
+			    var marker = advancedMarker( #data.problems.id#, #data.problems.latitude#, #data.problems.longitude#, '#data.problems.statusColour#', '#data.problems.typelabel#', '#data.problems.image#' );
+			    mapstraction.addMarker(marker);
+			</cfloop>
+		</cfif>
+		
+		mapstraction.setCenterAndZoom(new mxn.LatLonPoint( #data.user.centreLat#, #data.user.centreLon# ), 14);
+	    mapstraction.addLargeControls();
+	   
+   }
+   
+   function advancedMarker( v_id, v_lat, v_lon, v_icon, v_typeLabel, v_image ) {
+		
+		var marker = new mxn.Marker( new mxn.LatLonPoint( v_lat, v_lon ));
+	    var content = '<h2 class="' + v_icon + '">' + v_typeLabel + '</h2><br/><img src="/images/dropzone/thumbs/' + v_image + '" /><p><a href="/problem/investigate?id=' + v_id + '" class="fl activeButton">View Problem</a></p>';
+        marker.setIcon('/images/' + v_icon + '-pin.png');
+        marker.setIconSize([29,30]);
+        marker.setInfoBubble(content);
+        
+	    return marker;
+	    
+	}
+</script>
 	
 </cfoutput>

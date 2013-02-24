@@ -33,18 +33,21 @@
 			<cfelse>
 			
 				<!--- Check where we need to redirect to --->
-				<cfif params.comment.cmd EQ 'fixed'>
+				<cfif params.submit EQ 'Fix Problem'>
 	
 					<!--- Now forward to the Problem controller to mark the problem as fixed --->
 					<cfset redirectTo(controller="problem", action="fix", params="ID=#params.comment.problemID#")>
 				
-				<cfelseif params.comment.cmd EQ 'reject'>
+				<cfelseif params.submit EQ 'Reject Problem'>
 				
 					<!--- Now forward to the Problem controller to mark the problem as fixed --->
 					<cfset redirectTo(controller="problem", action="reject", params="ID=#params.comment.problemID#")>
 				
 				<cfelse>
-					<cfabort>
+					
+					<!--- Now forward back to the investigate page --->
+					<cfset redirectTo(controller="problem", action="investigate", params="ID=#params.comment.problemID#")>
+					
 				</cfif>
 						
 			</cfif>

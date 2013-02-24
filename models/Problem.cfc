@@ -8,6 +8,8 @@
 		<cfset belongsTo("problemeffect")>
 		<cfset belongsTo("reporter")>
 		<cfset belongsTo("status")>
+		
+		<cfset hasMany("problemcomment")>
 	
 	</cffunction>
 

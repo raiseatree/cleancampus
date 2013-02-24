@@ -9,7 +9,7 @@
 		<![endif]-->
 		#styleSheetLinkTag(sources="global,jquery.lightbox-0.5")#
 	</head>
-	<body <!--->onload="init();"---> onload="initialize();">
+	<body>
 		
 		<div id="mainHolder">
 			<!--- Display main content --->

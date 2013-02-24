@@ -22,7 +22,15 @@
 			<cfloop query="ARGUMENTS.data">
 				<div class="overflow problem">
 					<h2 class="itemTitle overflow"><a href="##" class="tag #ARGUMENTS.colour#">#typeLabel#</a> <span class="fr">#timeAgoInWords(createdAt)# ago</span></h2>
-					<p><cfif IsDefined("image") AND image GT '' AND FileExists('/images/dropzone/#image#')><a href="/images/dropzone/#image#" class="lightbox">#imageTag(source='dropzone/thumbs/#image#', class="dashImage")#</a><cfelse>#imageTag(source='no-image.png', class="dashImage")#</cfif> #description#</p>
+					<p>
+						<cfif IsDefined("image") AND image GT ''>
+							<a href="/images/dropzone/#image#" class="lightbox">
+								#imageTag(source='dropzone/thumbs/#image#', class="dashImage")#
+							</a>
+						<cfelse>
+							#imageTag(source='no-image.png', class="dashImage")#
+						</cfif> 
+						#description#</p>
 					<p class="itemMap">
 						<span>Click map to enlarge</span>
 						<a href="http://maps.googleapis.com/maps/api/staticmap?maptype=satellite&center=#latitude#,#longitude#&zoom=17&&size=320x240&scale=2&markers=color:red%7C#latitude#,#longitude#&sensor=false" class="lightbox">
@@ -40,7 +48,7 @@
 								<a href="##" class="fl amberButton assignButton">Assign Problem</a>
 							</cfif>--->
 							<a href="##" class="fl redButton rejectButton">Reject Problem</a>
-							<!---<a href="##" class="fr inactiveButton addComment">Add Comment</a>--->
+							<a href="##" class="fr inactiveButton addCommentButton">Add Comment</a>
 						</p>
 					</cfif>
 				</div>

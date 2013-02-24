@@ -10,7 +10,7 @@ $(document).ready(function() {
 	$('.jq-mapdashlink').click(function() {
 		
 		// Set this button to be active
-		/*$('.jq-mapdashlink').parent().removeClass('selected');
+		$('.jq-mapdashlink').parent().removeClass('selected');
 		$(this).parent().addClass('selected');
 		
 		// Check which link we clicked and show/hide the relevant content
@@ -19,9 +19,7 @@ $(document).ready(function() {
 		
 		$('.jq-feature').fadeOut('fast', function() {
 			$('#' + id).fadeIn('fast');			
-		});*/
-		
-		alert('Map view currently unavailable');
+		});
 		
 	});
 

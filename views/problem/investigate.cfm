@@ -7,12 +7,22 @@
 		$('a.lightbox').lightBox(); 
 		
 		// Set up the show box links
+		$('.addCommentButton').click(function() {
+			$('.problemBox').fadeOut(function() {
+				$('.addComment').fadeIn();
+			});
+		});
+		
 		$('.fixButton').click(function() {
-			$('.fixProblem').fadeIn();
+			$('.problemBox').fadeOut(function() {
+				$('.fixProblem').fadeIn();
+			});
 		});
 		
 		$('.rejectButton').click(function() {
-			$('.rejectProblem').fadeIn();
+			$('.problemBox').fadeOut(function() {
+				$('.rejectProblem').fadeIn();
+			});
 		});
 		
 	});
@@ -31,37 +41,47 @@
 			<!--- TODO Update the status colour here --->
 			#showProblems(data.problem, 'red', false)#
 		
-			<div class="<cfif not(IsDefined('data.showFixForm'))>hidden</cfif> fixProblem">
+			#startFormTag(controller="problemcomment", action="add")#	
 				
-				<h2>Fix Problem</h2>
-				
-				#startFormTag(controller="problemcomment", action="add")#	
+				<div class="<cfif not(IsDefined('data.showFixForm'))>hidden</cfif> addComment problemBox">
 					
+					<h2>Add Comment</h2>
+								
 					#includePartial('/problem/addComment')#
 				
 					<!--- Include the redirect tag --->
-					#hiddenFieldTag(name="comment[cmd]", value="fixed")#
-					#submitTag(name="submit", class="activeButton", value="Fix Problem &gt;")#
-				
-				#endFormTag()#
-				
-			</div>
-		
-			<div class="<cfif not(IsDefined('data.showFixForm'))>hidden</cfif> rejectProblem">
-				
-				<h2>Reject Problem</h2>
+					#submitTag(name="submit", class="inactiveButton", value="Add Comment")#
 					
-				#startFormTag(controller="problemcomment", action="add")#	
+				</div>
+			
+				<div class="<cfif not(IsDefined('data.showFixForm'))>hidden</cfif> fixProblem problemBox">
 					
+					<h2>Fix Problem</h2>
+								
 					#includePartial('/problem/addComment')#
 				
 					<!--- Include the redirect tag --->
-					#hiddenFieldTag(name="comment[cmd]", value="reject")#
-					#submitTag(name="submit", class="redButton", value="Reject Problem &gt;")#
+					#submitTag(name="submit", class="activeButton", value="Fix Problem")#
+					
+				</div>
+			
+				<div class="<cfif not(IsDefined('data.showFixForm'))>hidden</cfif> rejectProblem problemBox">
+					
+					<h2>Reject Problem</h2>
+						
+					#includePartial('/problem/addComment')#
 				
-				#endFormTag()#
+					<!--- Include the redirect tag --->
+					#submitTag(name="submit", class="redButton", value="Reject Problem")#
+					
+				</div>
 				
-			</div>
+				<p>
+					#hiddenField(objectName="data.comment", property="problemID")#
+					#hiddenField(objectName="data.comment", property="userID")#
+				</p>
+				
+			#endFormTag()#
 		
 		</div>
 		

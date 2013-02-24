@@ -202,8 +202,7 @@
 		
 			<cfcatch type="any">
 				<cfset rtn.result = false>
-				<cfset rtn.message = 'An error occurred - sorry'>
-				<cfdump var="#cfcatch#"><cfabort>
+				<cfset rtn.message = 'An error occurred - #cfcatch.message#'>
 			</cfcatch>	
 			
 		</cftry>
@@ -250,11 +249,11 @@
 		<cfif IsDefined("params.ID")>
 		
 			<!--- Load the problem --->
-			<cfset data.problem = model("problem").findAll(where="ID=#params.ID#", include="problemtype,problemeffect,status", returnAs="query")>
+			<cfset data.problem = model("problem").findOne(where="ID=#params.ID#", include="problemtype,problemeffect,status", returnAs="query")>
 			
 			<!--- Create a new comment instance --->
 			<cfset data.comment = model("problemcomment").new(problemID=data.problem.ID, userID=SESSION.userID)>
-	
+
 		<cfelse>
 			<cfset flashInsert(error="Sorry - cannot access method in that way")>
 			<cfset redirectTo(back=true)>
