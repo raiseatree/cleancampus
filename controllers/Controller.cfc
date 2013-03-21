@@ -69,15 +69,19 @@
 					</cflogin>
 				
 				<cfelse>
-					<!--- TODO Chnage this to use the home route --->
-					<cfset flashInsert(error="You must login before accessing that page")>
-					<cfset redirectTo(controller="main", action="register")>
+					<!--- Flash and redirect --->
+					<cfif params.action NEQ 'home'>
+						<cfset flashInsert(error="You must login before accessing that page")>
+					</cfif>
+					<cfset redirectTo(controller="main", action="signin")>
 				</cfif>
 				
 			<cfelse>
-				<!--- TODO Chnage this to use the home route --->
-				<cfset flashInsert(error="You must login before accessing that page")>
-				<cfset redirectTo(controller="main", action="register")>
+				<!--- Flash and redirect --->
+				<cfif params.action NEQ 'home'>
+					<cfset flashInsert(error="You must login before accessing that page")>
+				</cfif>
+				<cfset redirectTo(controller="main", action="signin")>
 			</cfif>
 			
 		</cfif>	
