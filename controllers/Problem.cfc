@@ -46,6 +46,15 @@
 				<cfset params.image = ''>
 			</cfif>
 		
+			<!--- Check if we have selected 'other' as a category for problem effects or types --->
+			<cfif IsDefined("params.problemTypeID") AND params.problemTypeID EQ 0>
+				<cfset StructDelete(params, 'problemTypeID')>
+			</cfif>
+		
+			<cfif IsDefined("params.problemEffectID") AND params.problemEffectID EQ 0>
+				<cfset StructDelete(params, 'problemEffectID')>
+			</cfif>
+		
 			<cflog file="AddProblem" type="info" text="About to create the problem">
 		
 			<!--- Create a new Problem instance --->
