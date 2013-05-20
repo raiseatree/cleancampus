@@ -10,6 +10,7 @@
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		#styleSheetLinkTag(sources="global,jquery.lightbox-0.5")#
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600" rel="stylesheet">
 	</head>
 	<body>
 		
