@@ -88,7 +88,7 @@
 
 			<cfcatch type="any">
 				
-				<cfset sendEmail(to='andy@cleancampus.co.uk', subject='Error adding problem', template='error', iParams=params, iCfcatch=cfcatch)>	
+				<cfset sendEmail(to='andy@cleancampus.co.uk', from="hello@cleancampus.co.uk", subject='Error adding problem', template='error', iParams=params, iCfcatch=cfcatch)>	
 				
 				<cfset rtn.result = false>
 				
