@@ -23,8 +23,8 @@
 			
 			<cflog file="AddProblem" type="info" text="Reached method call and Decrypting the reporterID">
 			
-			<!--- Decrypt Reporter ID 
-			<cfset params.reporterID = decrypt(params.reporterID, GetReporterKey(), "CFMX_COMPAT", "Hex")>--->
+			<!--- Decrypt Reporter ID --->
+			<cfset params.reporterID = decrypt(params.reporterID, GetReporterKey(), "CFMX_COMPAT", "Hex")>
 		
 			<cflog file="AddProblem" type="info" text="Trying to find the reporter from the db">
 		
